@@ -1,5 +1,7 @@
 import { getPermalink } from './utils/permalinks';
 
+const currentYear = new Date().getFullYear();
+
 export const headerData = {
   links: [
     {
@@ -23,6 +25,6 @@ export const footerData = {
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/SamuelGaitkoski' }
   ],
   footNote: `
-    &copy; {today.getFullYear()} Samuel Gaitkoski de Almeida. All rights reserved.
+    &copy; ${currentYear} Samuel Gaitkoski de Almeida. All rights reserved.
   `,
 };
