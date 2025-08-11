@@ -4,6 +4,9 @@ import Hero from '~/components/widgets/Hero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import myImage from '~/assets/images/me.jpg';
+import { columns } from 'tailwindcss/defaultTheme';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import Technologies from '~/components/Technologies.astro';
 
 const metadata = {
   title: 'About us',
@@ -85,4 +88,6 @@ const experiences = [
       alt: 'Steps image',
     }}
   />
+
+  <Technologies />
 </Layout>
