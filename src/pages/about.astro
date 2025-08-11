@@ -8,6 +8,45 @@ import myImage from '~/assets/images/me.jpg';
 const metadata = {
   title: 'About us',
 };
+
+const experiences = [
+  {
+    title: 'Full Stack .NET Developer',
+    company: 'Grupo Apisul',
+    period: 'Nov 2023 - Jul 2025',
+    details: [
+      'Developed internal applications',
+      'Maintained and optimized APIs',
+      'Collaborated with design team on UI improvements'
+    ],
+    icon: 'tabler:package',
+  },
+  {
+    title: 'Full Stack .NET Junior Developer',
+    company: 'GVDASA',
+    period: 'Sep 2021 - Oct 2023',
+    details: [
+      'Worked on school management systems',
+      'Implemented new features for reporting',
+      'Provided bug fixes and support'
+    ],
+    icon: 'tabler:letter-case',
+  },
+  {
+    title: 'Junior Technician VII',
+    company: 'SKA Automação de Engenharias',
+    period: 'Jan 2021 - Sep 2021',
+    details: [
+      'Assisted in CAD software automation',
+      'Provided technical support to engineering teams'
+    ],
+    icon: 'tabler:paint',
+  },
+  {
+    title: 'Thank you for reading!',
+    icon: 'tabler:check',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -34,27 +73,13 @@ const metadata = {
 
   <Steps
     title="Experiences"
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description: '',
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description: '',
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description: '',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Thank you for reading!',
-        icon: 'tabler:check',
-      },
-    ]}
+    items={experiences.map(exp => ({
+      title: exp.title,
+      description: exp.company 
+        ? `${exp.company}<br/>${exp.period || ''}<br/>${exp.details ? exp.details.join('<br/>') : ''}`
+        : '',
+        icon: exp.icon
+    }))}
     image={{
       src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
       alt: 'Steps image',
