@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Features from '~/components/widgets/Features.astro';
+import IconProgramming from '~/components/icons/IconProgramming.astro';
 
 const metadata = {
   title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
@@ -12,6 +13,10 @@ const metadata = {
 <Layout metadata={metadata}>
   <main>
     <section class="md:px-36">
+      <div class="md:mt-14">
+        <IconProgramming />
+      </div>
+      
       <Features
         id="features"
         tagline="TECHNOLOGIES"
