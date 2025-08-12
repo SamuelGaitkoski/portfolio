@@ -10,41 +10,45 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Features
-    id="features"
-    tagline="TECHNOLOGIES"
-    title="What I used to build this site"
-    items={[
-      {
-        title: 'Astro',
-        description: 'Build faster websites.',
-        icon: 'mdi:card',
-      },
-      {
-        title: 'AstroWind Theme',
-        description: 'Astro template to kickstart your website.',
-        icon: 'mdi:card'
-      },
-      {
-        title: 'ReactJS',
-        description: 'A JavaScript library for building user interfaces.',
-        icon: 'mdi:card',
-      },
-      {
-        title: 'TypeScript',
-        description: 'A strongly typed programming language that builds on JavaScript.',
-        icon: 'mdi:card',
-      },
-      {
-        title: 'TailwindCSS',
-        description: 'An utility-first CSS framework.',
-        icon: 'mdi:card',
-      },
-      {
-        title: 'unDraw',
-        description: 'The design project with open-source illustrations.',
-        icon: 'mdi:card',
-      }
-    ]}
-  />
+  <main>
+    <section class="md:px-36">
+      <Features
+        id="features"
+        tagline="TECHNOLOGIES"
+        title="What I used to build this site"
+        items={[
+          {
+            title: 'Astro',
+            description: 'Build faster websites.',
+            icon: 'mdi:card',
+          },
+          {
+            title: 'TypeScript',
+            description: 'A strongly typed programming language that builds on JavaScript.',
+            icon: 'mdi:card',
+          },    
+          {
+            title: 'AstroWind Theme',
+            description: 'Astro template to kickstart your website.',
+            icon: 'mdi:card'
+          },               
+          {
+            title: 'TailwindCSS',
+            description: 'An utility-first CSS framework.',
+            icon: 'mdi:card',
+          },
+          {
+            title: 'ReactJS',
+            description: 'A JavaScript library for building user interfaces.',
+            icon: 'mdi:card',
+          },
+          {
+            title: 'unDraw',
+            description: 'The design project with open-source illustrations.',
+            icon: 'mdi:card',
+          }
+        ]}
+      />
+    </section>
+  </main>
 </Layout>
