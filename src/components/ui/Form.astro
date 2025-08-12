@@ -11,7 +11,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
       inputs.map(
         ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
           name && (
-            <div class="mb-6">
+            <div class="mb-5">
               {label && (
                 <label for={name} class="block text-sm font-medium">
                   {label}
@@ -69,7 +69,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
 
   {
     button && (
-      <div class="mt-10 grid">
+      <div class="mt-6 grid">
         <Button variant="primary" type="submit">
           {button}
         </Button>

@@ -21,8 +21,16 @@ export const headerData = {
 
 export const footerData = {
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/samuel-gaitkoski/' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/SamuelGaitkoski' }
+    { 
+      ariaLabel: 'LinkedIn', 
+      icon: 'tabler:brand-linkedin', 
+      href: 'https://www.linkedin.com/in/samuel-gaitkoski/' 
+    },
+    { 
+      ariaLabel: 'Github', 
+      icon: 'tabler:brand-github', 
+      href: 'https://github.com/SamuelGaitkoski' 
+    }
   ],
   footNote: `
     &copy; ${currentYear} Samuel Gaitkoski de Almeida. All rights reserved.
