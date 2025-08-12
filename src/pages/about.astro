@@ -50,22 +50,37 @@ const experiences = [
 ---
 
 <Layout metadata={metadata}>
-  
+  <section class="md:px-36">
+    <div class="py-10 mx-auto max-w-6xl lg:py-14">
+      <h2 class="text-2xl lg:text-3xl font-bold leading-tighter tracking-tighter my-3">
+        Qualifications & Skills
+      </h2>
 
-  <Steps
-    title="Experiences"
-    items={experiences.map(exp => ({
-      title: exp.title,
-      description: exp.company 
-        ? `${exp.company}<br/>${exp.period || ''}<br/>${exp.details ? exp.details.join('<br/>') : ''}`
-        : '',
-        icon: exp.icon
-    }))}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
+      <p class="text-md text-gray-600 mb-8 dark:text-slate-400 text-center">
+        I work as a Full Stack Engineer and have interest in many IT related subjects
+      </p>
+    </div>
+
+    <Steps
+      title="Experiences"
+      items={experiences.map(exp => ({
+        title: exp.title,
+        description: exp.company 
+          ? `${exp.company}<br/>${exp.period || ''}<br/>${exp.details ? exp.details.join('<br/>') : ''}`
+          : '',
+          icon: exp.icon
+      }))}
+      classes={{
+        container: 'px-0 md:px-0' 
+      }}
+      image={{
+        src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+        alt: 'Steps image',
+      }}
+    />
+  </section>
+
+
 
   <Technologies />
 </Layout>
