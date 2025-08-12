@@ -1,6 +1,7 @@
 ---
 import ItemGrid from "./ui/ItemGrid.astro";
 import ItemGrid2 from "./ui/ItemGrid2.astro";
+import Content from "./widgets/Content.astro";
 
 export const items = [
   { 
@@ -55,16 +56,10 @@ export const items = [
 ---
 
 <section>
-  <ItemGrid
+  <Content
+    title="What I use day to day"
+    tagline="TECHNOLOGY"
     items={items}
     columns={4}
-    classes={{
-      container: `gap-y-4 md:gap-y-8`,
-      panel: 'max-w-none',
-      title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-      description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
-      icon: 'flex h-7 w-7 items-center justify-center text-gray-50 p-1',
-      action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-    }}
   />
 </section>
