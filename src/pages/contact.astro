@@ -12,10 +12,10 @@ const metadata = {
 <Layout metadata={metadata}>
   <main>
     <section>
-      <div class="max-w-6xl mx-auto overflow-hidden">
+      <div class="w-full mx-auto overflow-hidden">
         <div class="md:px-36">
-          <div class="flex flex-wrap">
-            <div>
+          <div class="flex flex-wrap md:py-16">
+            <div class="w-full lg:w-1/2">
               <ContactUs
                 id="form"
                 title='Contact Me'
@@ -35,10 +35,13 @@ const metadata = {
                 textarea={{
                   label: 'Message',
                 }}
-                button='Submit'
+                button='Submit',
+                classes={{
+                  container: 'px-0 md:px-0 py-0 md:py-0 lg:py-0'
+                }}
               />
             </div>
-            <div>
+            <div class="w-full lg:w-1/2">
               <ul class="space-y-6">
                 {socialLinks.map(({ ariaLabel, href, text, icon }) => (
                   <li>
