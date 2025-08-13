@@ -41,17 +41,19 @@ const metadata = {
                 }}
               />
             </div>
-            <div class="w-full lg:w-1/2">
+            <div class="w-full lg:w-1/2 flex justify-center">
               <ul class="space-y-6">
-                {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+                {socialLinks.map((link) => (
                   <li>
                     <a
                       class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                      aria-label={ariaLabel}
-                      href={href}
+                      aria-label={link.ariaLabel}
+                      href={link.href}
                     >
-                      {icon && <Icon name={icon} class="w-4 h-4" />}
-                      <Fragment set:html={text} />
+                      <Icon name={link.icon} class="w-12 h-12" />
+                      <div class="px-3 flex items-center">
+                        <h3 class="text-md font-semibold">{link.text}</h3>
+                      </div>
                     </a>
                   </li>
                 ))}

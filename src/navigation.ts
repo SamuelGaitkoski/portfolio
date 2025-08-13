@@ -23,13 +23,13 @@ export const socialLinks = [
   { 
     ariaLabel: 'LinkedIn',
     text: 'LinkedIn',
-    icon: 'tabler:brand-linkedin',
+    icon: 'mdi:linkedin',
     href: 'https://www.linkedin.com/in/samuel-gaitkoski/'
   },
   { 
     ariaLabel: 'Github',
     text: 'Github',
-    icon: 'tabler:brand-github',
+    icon: 'mdi:github',
     href: 'https://github.com/SamuelGaitkoski'
   }
 ];
