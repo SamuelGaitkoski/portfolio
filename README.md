@@ -6,5 +6,5 @@ https://www.samuelalmeida.com
 
 - Astro
 - ReactJS
-- Typescript
+- TypeScript
 - TailwindCSS
