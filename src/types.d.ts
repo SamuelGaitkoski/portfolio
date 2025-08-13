@@ -249,7 +249,6 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   defaultIcon?: string;
   callToAction1?: CallToAction;
   callToAction2?: CallToAction;
-  isReversed?: boolean;
   isBeforeContent?: boolean;
   isAfterContent?: boolean;
 }
@@ -265,7 +264,6 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
   items?: Array<Item>;
   callToAction?: string | CallToAction;
   image?: string | Image;
-  isReversed?: boolean;
 }
 
 export interface Content extends Omit<Headline, 'classes'>, Widget {
@@ -273,7 +271,6 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   image?: string | unknown;
   items?: Array<Item>;
   columns?: number;
-  isReversed?: boolean;
   isAfterContent?: boolean;
   callToAction?: CallToAction;
 }
