@@ -1,6 +1,6 @@
 import { getPermalink } from './utils/permalinks';
 
-const currentYear = new Date().getFullYear();
+
 
 export const headerData = {
   links: [
@@ -19,20 +19,17 @@ export const headerData = {
   ]
 };
 
-export const footerData = {
-  socialLinks: [
-    { 
-      ariaLabel: 'LinkedIn', 
-      icon: 'tabler:brand-linkedin', 
-      href: 'https://www.linkedin.com/in/samuel-gaitkoski/' 
-    },
-    { 
-      ariaLabel: 'Github', 
-      icon: 'tabler:brand-github', 
-      href: 'https://github.com/SamuelGaitkoski' 
-    }
-  ],
-  footNote: `
-    &copy; ${currentYear} Samuel Gaitkoski de Almeida. All rights reserved.
-  `,
-};
+export const socialLinks = [
+  { 
+    ariaLabel: 'LinkedIn',
+    text: 'LinkedIn',
+    icon: 'tabler:brand-linkedin',
+    href: 'https://www.linkedin.com/in/samuel-gaitkoski/'
+  },
+  { 
+    ariaLabel: 'Github',
+    text: 'Github',
+    icon: 'tabler:brand-github',
+    href: 'https://github.com/SamuelGaitkoski'
+  }
+];

@@ -1,7 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SITE } from 'astrowind:config';
-import { getHomePermalink } from '~/utils/permalinks';
+import { socialLinks } from '~/navigation';
+
+const currentYear = new Date().getFullYear();
+const footNote = `&copy; ${currentYear} Samuel Gaitkoski de Almeida. All rights reserved.`;
 
 interface Link {
   text?: string;
@@ -21,10 +23,8 @@ export interface Props {
   theme?: string;
 }
 
-const { 
-  socialLinks = [], 
-  footNote = '', 
-  theme = 'light' 
+const {
+  theme = 'light'
 } = Astro.props;
 ---
 

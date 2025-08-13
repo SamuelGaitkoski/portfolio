@@ -1,6 +1,8 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
+import { socialLinks } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Contact',
@@ -8,25 +10,53 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <ContactUs
-    id="form"
-    title='Contact Me'
-    subtitle='Thank you for checking out my portfolio website!''
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    button='Submit'
-  />
+  <main>
+    <section>
+      <div class="max-w-6xl mx-auto overflow-hidden">
+        <div class="md:px-36">
+          <div class="flex flex-wrap">
+            <div>
+              <ContactUs
+                id="form"
+                title='Contact Me'
+                subtitle='Thank you for checking out my portfolio website!''
+                inputs={[
+                  {
+                    type: 'text',
+                    name: 'name',
+                    label: 'Name',
+                  },
+                  {
+                    type: 'email',
+                    name: 'email',
+                    label: 'Email',
+                  },
+                ]}
+                textarea={{
+                  label: 'Message',
+                }}
+                button='Submit'
+              />
+            </div>
+            <div>
+              <ul class="space-y-6">
+                {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+                  <li>
+                    <a
+                      class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                      aria-label={ariaLabel}
+                      href={href}
+                    >
+                      {icon && <Icon name={icon} class="w-4 h-4" />}
+                      <Fragment set:html={text} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
