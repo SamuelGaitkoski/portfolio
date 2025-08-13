@@ -48,10 +48,10 @@ const {
           defaultIcon="tabler:check"
           classes={{
             container: `gap-y-4 md:gap-y-8`,
-            panel: 'p-1 items-center text-primary bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition',
-            title: 'text-sm font-bold leading-6 dark:text-white rtl:ml-0 rtl:mr-2',
-            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
-            icon: 'flex h-12 w-12 items-center justify-center rounded-full text-gray-50 p-1',
+            panel: `p-1 items-center text-primary bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition ${classes?.panel ?? ''}`,
+            title: `text-sm font-bold leading-6 dark:text-white rtl:ml-0 rtl:mr-2 ${classes?.title ?? ''}`,
+            description: `text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2 ${classes?.description ?? ''}`,
+            icon: `flex h-12 w-12 items-center justify-center rounded-full text-gray-50 p-1 ${classes?.icon ?? ''}`,
             action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
           }}
         />
