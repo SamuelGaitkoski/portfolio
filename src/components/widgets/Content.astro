@@ -37,7 +37,7 @@ const {
       subtitle: 'max-w-3xl mx-auto sm:text-center text-xs text-muted dark:text-slate-400 mt-2',
     }}
   />
-  <div class="mx-auto max-w-7xl p-4 md:px-8">
+  <div class="mx-auto max-w-7xl">
     <div class={`${!image ? '' : 'md:flex md:gap-16'}`}>
       <div class="md:basis-1/2">
         {content && <div class="mb-7 text-lg dark:text-slate-400" set:html={content} />}
@@ -47,7 +47,7 @@ const {
           columns={columns}
           defaultIcon="tabler:check"
           classes={{
-            container: `gap-y-4 md:gap-y-8 ${classes?.container ?? ''}`,
+            container: `gap-y-4 md:gap-y-8 ${classes?.gridContainer ?? ''}`,
             panel: `p-1 items-center text-primary bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition ${classes?.panel ?? ''}`,
             title: `text-sm font-bold leading-6 dark:text-white rtl:ml-0 rtl:mr-2 ${classes?.title ?? ''}`,
             description: `text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2 ${classes?.description ?? ''}`,
