@@ -1,0 +1,30 @@
+---
+const skills = {
+  "Front-end": "HTML, CSS, JavaScript, TypeScript, AngularJS, ReactJS, ExtJS.",
+  "Back-end": "C#, .NET Framework (4.6+), .NET Core (3.1+), .NET 6, .NET 7, .NET 8, .NET 9, ADO.NET, ODP.NET, ASP.NET Web Forms, ASP.NET MVC, ASP.NET Core, Entity Framework Core, Dapper, WCF, WPF, MVVM Architecture, RESTful API, SOAP API, DB Store Procedure Concept, Minimal API, Clean Architecture, CQRS, Unit tests, JWT and Cookie Authentication, Authorization, Microservices.",
+  "SQL databases": "Microsoft SQL Server, MySQL, PostgreSQL, Oracle.",
+  "No-SQL databases": "MongoDB.",
+  "Version control": "Git, TFS.",
+  "CI/CD": "Azure, TeamCity, Octopus Deploy.",
+  "Azure": "Azure DevOps, Azure App Service, Azure Blob Storage, Azure Active Directory, Azure Key Vault.",
+  "AWS": "S3.",
+  "Agile methodologies": "Scrum, Kanban."
+};
+---
+
+<main>
+  <section class="py-10 mx-auto w-full lg:py-14">
+    <h2 class="text-2xl lg:text-3xl font-bold leading-tighter tracking-tighter mb-6 md:mb-7">
+      Skills & Qualifications
+    </h2>
+
+    <div class="space-y-6 max-w-3xl">
+      {Object.entries(skills).map(([category, items]) => (
+        <div>
+          <p class="text-lg font-semibold mb-1">{category}</h3>
+          <p class="text-gray-700 dark:text-slate-300">{items}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</main>
