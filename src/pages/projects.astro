@@ -7,6 +7,27 @@ const title = "Samuel Almeida's Projects";
 const metadata = {
   title: 'Projects',
 };
+
+const projects = [
+  {
+    title: 'React IMC Calculator',
+    description: 'React IMC Calculator',
+    link: 'https://github.com/SamuelGaitkoski/react-imc-calculator',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+  },
+  {
+    title: 'React Memory Game',
+    description: 'React Memory Game',
+    link: 'https://github.com/SamuelGaitkoski/react-memory-game',
+    image: ''
+  },
+  {
+    title: 'React Album with JSON Placeholder API',
+    description: 'React Album with JSON Placeholder API',
+    link: 'https://github.com/SamuelGaitkoski/react-album-jsonplaceholder-api',
+    image: ''
+  }
+];
 ---
 
 <Layout metadata={metadata}>
@@ -21,36 +42,38 @@ const metadata = {
           </header>
         </section>
 
-        <Content
-          items={[
-            {
-              icon: 'mdi:package-variant-closed',
-              title: 'Description',
-              description: 'Benefiting from the perthis modern static site generator.',
-            },
-            {
-              icon: 'mdi:external-link',
-              title: 'Links',
-              description: 'Facilitating rapid dar utility-first CSS framework.',
-            }
-          ]}
-          image={{
-            src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-            alt: 'Colorful Image',
-          }}
-          classes={{
-            container: 'px-0 md:px-0 py-3 md:py-3 lg:py-3 gap-y-2 md:gap-y-2',
-            panel: 'dark:bg-inherit dark:shadow-none items-start',
-            description: 'ml-0 text-xs mt-2',
-            icon: 'h-6 w-6'
-          }}
-        >
-          <Fragment slot="content">
-            <h3 class="text-md font-bold tracking-tight dark:text-white sm:text-xl">
-              Building on modern foundations
-            </h3>
-          </Fragment>
-        </Content>
+        {projects.map(({ title, description, link, image }) => (
+          <Content
+            items={[
+              {
+                icon: 'mdi:package-variant-closed',
+                title: 'Description',
+                description: description,
+              },
+              {
+                icon: 'mdi:external-link',
+                title: 'Links',
+                description: `<a href="${link}">Github</a>`,
+              }
+            ]}
+            image={{
+              src: image,
+              alt: `${title} image`,
+            }}
+            classes={{
+              container: 'px-0 md:px-0 py-3 md:py-3 lg:py-3 gap-y-2 md:gap-y-2',
+              panel: 'dark:bg-inherit dark:shadow-none items-start',
+              description: 'ml-0 text-xs mt-2',
+              icon: 'h-6 w-6'
+            }}
+          >
+            <Fragment slot="content">
+              <h3 class="text-md font-bold tracking-tight dark:text-white sm:text-xl">
+                {title}
+              </h3>
+            </Fragment>
+          </Content>
+        ))}
       </div>
     </div>
   </main>
