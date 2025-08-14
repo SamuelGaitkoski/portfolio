@@ -1,7 +1,7 @@
 ---
 import Content from "./widgets/Content.astro";
 
-export const items = [
+const items = [
   { 
     title: 'Google Cloud', 
     icon: 'mdi:google-cloud' 
@@ -53,15 +53,17 @@ export const items = [
 ];
 ---
 
-<section>
-  <Content
-    title="What I use day to day"]
-    subtitle="Icons provided by Iconify"
-    tagline="TECHNOLOGY"
-    items={items}
-    columns={4}
-    classes={{
-      container: 'lg:py-12 lg:px-36 dark:bg-slate-800 mb-2 md:mb-2'
-    }}
-  />
-</section>
+<main>
+  <section>
+    <Content
+      title="What I use day to day"]
+      subtitle="Icons provided by Iconify"
+      tagline="TECHNOLOGY"
+      items={items}
+      columns={4}
+      classes={{
+        container: 'lg:py-12 lg:px-36 dark:bg-slate-800 mb-2 md:mb-2'
+      }}
+    />
+  </section>
+</main>
