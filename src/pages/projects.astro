@@ -2,6 +2,8 @@
 import Content from "~/components/widgets/Content.astro";
 import Layout from "~/layouts/Layout.astro";
 
+import myImage from '~/assets/images/me.jpg';
+
 const title = "Samuel Almeida's Projects";
 
 const metadata = {
@@ -10,22 +12,82 @@ const metadata = {
 
 const projects = [
   {
-    title: 'React IMC Calculator',
-    description: 'React IMC Calculator',
-    link: 'https://github.com/SamuelGaitkoski/react-imc-calculator',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+    title: 'Stock Manager WEB API',
+    description: 'CRM Dashboard',
+    link: 'https://github.com/SamuelGaitkoski/web-api-stock-manager',
+    usedTech: ['C#', '.NET Core 3.1'],
+    image: myImage
   },
   {
-    title: 'React Memory Game',
-    description: 'React Memory Game',
-    link: 'https://github.com/SamuelGaitkoski/react-memory-game',
-    image: ''
+    title: 'Products',
+    description: 'Products',
+    beLink: 'https://github.com/SamuelGaitkoski/api-products',
+    feLink: 'https://github.com/SamuelGaitkoski/front-angular-products',
+    usedTech: ['Angular 10', '.NET 6.0', 'EF Core', 'SQL Server', 'JWT Authentication'],
+    image: myImage
   },
   {
-    title: 'React Album with JSON Placeholder API',
+    title: 'Fleet Control WEB API',
+    description: 'CRM Dashboard',
+    link: 'https://github.com/SamuelGaitkoski/web-api-fleet-control',
+    usedTech: ['C#', '.NET Core 3.1', 'EF Core', 'SQL Server'],
+    image: myImage
+  },
+  {
+    title: 'CRM Dashboard',
+    description: 'CRM Dashboard',
+    link: 'https://github.com/SamuelGaitkoski/react-crm-dashboard',
+    usedTech: ['React', 'TypeScript'],
+    image: myImage
+  },
+  {
+    title: 'Task List',
+    description: 'Task List',
+    link: 'https://github.com/SamuelGaitkoski/react-task-list',
+    usedTech: ['React', 'TypeScript', 'Styled Components'],
+    image: myImage
+  },
+  {
+    title: 'UI inspired on Rick and Morty API',
+    description: 'UI inspired on Rick and Morty API',
+    link: 'https://github.com/SamuelGaitkoski/react-rick-and-morty-api',
+    usedTech: ['React', 'TypeScript', 'SCSS'],
+    image: myImage
+  },
+  {
+    title: 'Twitter UI',
+    description: 'Twitter UI',
+    link: 'https://github.com/SamuelGaitkoski/react-twitter-ui',
+    usedTech: ['React', 'TypeScript'],
+    image: myImage
+  },
+  {
+    title: 'UI inspired on OLX',
+    description: 'UI inspired on OLX',
+    link: 'https://github.com/SamuelGaitkoski/react-inspired-olx',
+    usedTech: ['React', 'JavaScript', 'Styled Components'],
+    image: myImage
+  },
+  {
+    title: 'Album with JSON Placeholder API',
     description: 'React Album with JSON Placeholder API',
     link: 'https://github.com/SamuelGaitkoski/react-album-jsonplaceholder-api',
-    image: ''
+    usedTech: ['React', 'TypeScript', 'Styled Components'],
+    image: myImage
+  },
+  {
+    title: 'Memory Game',
+    description: 'React Memory Game',
+    link: 'https://github.com/SamuelGaitkoski/react-memory-game',
+    usedTech: ['React', 'TypeScript', 'Styled Components'],
+    image: myImage
+  },
+  {
+    title: 'IMC Calculator',
+    description: 'React IMC Calculator',
+    link: 'https://github.com/SamuelGaitkoski/react-imc-calculator',
+    usedTech: ['React', 'TypeScript', 'CSS Modules'],
+    image: myImage
   }
 ];
 ---
@@ -42,38 +104,58 @@ const projects = [
           </header>
         </section>
 
-        {projects.map(({ title, description, link, image }) => (
-          <Content
-            items={[
-              {
-                icon: 'mdi:package-variant-closed',
-                title: 'Description',
-                description: description,
-              },
-              {
-                icon: 'mdi:external-link',
-                title: 'Links',
-                description: `<a href="${link}">Github</a>`,
-              }
-            ]}
-            image={{
-              src: image,
-              alt: `${title} image`,
-            }}
-            classes={{
-              container: 'px-0 md:px-0 py-3 md:py-3 lg:py-3 gap-y-2 md:gap-y-2',
-              panel: 'dark:bg-inherit dark:shadow-none items-start',
-              description: 'ml-0 text-xs mt-2',
-              icon: 'h-6 w-6'
-            }}
-          >
-            <Fragment slot="content">
-              <h3 class="text-md font-bold tracking-tight dark:text-white sm:text-xl">
-                {title}
-              </h3>
-            </Fragment>
-          </Content>
-        ))}
+        {projects.map(({ title, description, link, beLink, feLink, usedTech, image }) => {
+          let linksContent = '';
+          
+          if (beLink || feLink) {
+            linksContent += beLink ? `<a href="${beLink}" target="_blank">Back-end Github</a>` : '';
+            linksContent += beLink && feLink ? ' - ' : '';
+            linksContent += feLink ? `<a href="${feLink}" target="_blank">Front-end Github</a>` : '';
+          } else if (link) {
+            linksContent = `<a href="${link}" target="_blank">Github</a>`;
+          } else {
+            linksContent = 'No links available';
+          }
+
+          return (
+            <Content
+              items={[
+                {
+                  icon: 'mdi:package-variant-closed',
+                  title: 'Description',
+                  description: description,
+                },
+                {
+                  icon: 'mdi:code-tags',
+                  title: 'Technologies',
+                  description: usedTech.join(', ')
+                },
+                {
+                  icon: 'mdi:external-link',
+                  title: 'Links',
+                  description: linksContent
+                }
+              ]}
+              image={{
+                src: image,
+                alt: `${title} image`
+              }}
+              classes={{
+                container: 'px-0 md:px-0 py-3 md:py-3 lg:py-3 gap-y-2 md:gap-y-2',
+                gridContainer: 'gap-y-2 md:gap-y-4',
+                panel: 'dark:bg-inherit dark:shadow-none items-start',
+                description: 'ml-0 text-xs mt-2',
+                icon: 'h-6 w-6'
+              }}
+            >
+              <Fragment slot="content">
+                <h3 class="text-md font-bold tracking-tight dark:text-white sm:text-xl">
+                  {title}
+                </h3>
+              </Fragment>
+            </Content>
+          );        
+        })}
       </div>
     </div>
   </main>
