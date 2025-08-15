@@ -99,7 +99,7 @@ const projects = [
 
         {projects.map(({ title, description, link, beLink, feLink, usedTech }) => {
           const techContent = (
-            <div class="text-xs text-slate-500 dark:text-slate-400">
+            <div class="text-xs text-black dark:text-slate-400">
               {usedTech.join(" · ")}
             </div>
           );
@@ -112,7 +112,7 @@ const projects = [
           ].filter(Boolean);
 
           const linksContent = (
-            <div class="text-xs text-slate-500 dark:text-slate-400">
+            <div class="text-xs text-black dark:text-slate-400">
               {linksArray.map((item, index) => (
                 <span>
                   {item}
@@ -149,9 +149,10 @@ const projects = [
               classes={{
                 container: 'p-6 md:p-6 lg:p-6 my-6 bg-blue-50 dark:bg-slate-800 rounded-md',
                 gridContainer: 'gap-y-2 md:gap-y-2',
-                panel: 'dark:bg-inherit dark:shadow-none items-start',
-                description: 'ml-0 text-xs mt-1',
-                icon: 'h-6 w-6'
+                panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
+                title: 'text-black',
+                description: 'ml-0 text-xs mt-1 text-black',
+                icon: 'h-6 w-6 text-black dark:text-white'
               }}
             >
               <Fragment slot="content">
