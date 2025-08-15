@@ -2,12 +2,6 @@
 import Content from "~/components/widgets/Content.astro";
 import Layout from '~/layouts/PageLayout.astro';
 
-import ImcCalculator from "../assets/images/projects/ImcCalculator.png";
-import DevMemory from "../assets/images/projects/DevMemory.png";
-import TaskList from "../assets/images/projects/TaskList.png";
-
-import MyImage from '~/assets/images/me.jpg';
-
 const title = "Samuel Almeida's Projects";
 
 const metadata = {
@@ -19,86 +13,74 @@ const projects = [
     title: 'Voluntariado',
     description: 'atuação como contributor in the project',
     link: 'https://github.com/juliavdev/voluntariado',
-    usedTech: ['AngularJS', 'Ionic', 'NodeJS', 'MySQL', 'Docker', 'JWT Authentication'],
-    image: MyImage
+    usedTech: ['AngularJS', 'Ionic', 'NodeJS', 'MySQL', 'Docker', 'JWT Authentication']
   },
   {
     title: 'Stock Manager',
     description: 'WEB API',
     link: 'https://github.com/SamuelGaitkoski/web-api-stock-manager',
-    usedTech: ['C#', '.NET Core 3.1'],
-    image: MyImage
+    usedTech: ['C#', '.NET Core 3.1']
   },
   {
     title: 'Products',
     description: 'Products',
     beLink: 'https://github.com/SamuelGaitkoski/api-products',
     feLink: 'https://github.com/SamuelGaitkoski/front-angular-products',
-    usedTech: ['Angular 10', '.NET 6.0', 'EF Core', 'SQL Server', 'JWT Authentication'],
-    image: MyImage
+    usedTech: ['Angular 10', '.NET 6.0', 'EF Core', 'SQL Server', 'JWT Authentication']
   },
   {
     title: 'Fleet Control',
     description: 'WEB API',
     link: 'https://github.com/SamuelGaitkoski/web-api-fleet-control',
-    usedTech: ['C#', '.NET Core 3.1', 'EF Core', 'SQL Server'],
-    image: MyImage
+    usedTech: ['C#', '.NET Core 3.1', 'EF Core', 'SQL Server']
   },
   {
     title: 'CRM Dashboard',
     description: 'CRM Dashboard',
     link: 'https://github.com/SamuelGaitkoski/react-crm-dashboard',
-    usedTech: ['React', 'TypeScript'],
-    image: MyImage
+    usedTech: ['React', 'TypeScript']
   },
   {
     title: 'Task List',
     description: 'A simple and interactive task management application that allows users to add, edit, and delete tasks. It helps keep track of daily to-dos in a clean and user-friendly interface. Each task can be marked as completed, making it easy to manage priorities and stay organized.',
     link: 'https://github.com/SamuelGaitkoski/react-task-list',
-    usedTech: ['React', 'TypeScript', 'Styled Components'],
-    image: TaskList
+    usedTech: ['React', 'TypeScript', 'Styled Components']
   },
   {
     title: 'UI inspired on Rick and Morty API',
     description: 'UI inspired on Rick and Morty API',
     link: 'https://github.com/SamuelGaitkoski/react-rick-and-morty-api',
-    usedTech: ['React', 'TypeScript', 'SCSS'],
-    image: MyImage
+    usedTech: ['React', 'TypeScript', 'SCSS']
   },
   {
     title: 'Twitter UI',
     description: 'Twitter UI',
     link: 'https://github.com/SamuelGaitkoski/react-twitter-ui',
-    usedTech: ['React', 'TypeScript'],
-    image: MyImage
+    usedTech: ['React', 'TypeScript']
   },
   {
     title: 'UI inspired on OLX',
     description: 'UI inspired on OLX',
     link: 'https://github.com/SamuelGaitkoski/react-inspired-olx',
-    usedTech: ['React', 'JavaScript', 'Styled Components'],
-    image: MyImage
+    usedTech: ['React', 'JavaScript', 'Styled Components']
   },
   {
     title: 'Album with JSON Placeholder API',
     description: 'React Album with JSON Placeholder API',
     link: 'https://github.com/SamuelGaitkoski/react-album-jsonplaceholder-api',
-    usedTech: ['React', 'TypeScript', 'Styled Components'],
-    image: MyImage
+    usedTech: ['React', 'TypeScript', 'Styled Components']
   },
   {
     title: 'DevMemory',
     description: 'DevMemory is a memory matching game where players must find pairs of identical images. The game tracks the time taken to complete the game and counts the number of moves made, adding an extra layer of challenge and competition.',
     link: 'https://github.com/SamuelGaitkoski/react-memory-game',
-    usedTech: ['React', 'TypeScript', 'Styled Components'],
-    image: DevMemory
+    usedTech: ['React', 'TypeScript', 'Styled Components']
   },
   {
     title: 'IMC Calculator',
     description: 'Calculate your BMI (Body Mass Index), a standard adopted by the World Health Organization to estimate the ideal weight for each person. The calculator determines your BMI based on the height and weight you enter and gives a visual indication of your result.',
     link: 'https://github.com/SamuelGaitkoski/react-imc-calculator',
-    usedTech: ['React', 'TypeScript', 'CSS Modules'],
-    image: ImcCalculator
+    usedTech: ['React', 'TypeScript', 'CSS Modules']
   }
 ];
 ---
@@ -115,7 +97,7 @@ const projects = [
           </header>
         </section>
 
-        {projects.map(({ title, description, link, beLink, feLink, usedTech, image }) => {
+        {projects.map(({ title, description, link, beLink, feLink, usedTech }) => {
           const techContent = (
             <div class="flex flex-col gap-1 text-xs text-slate-500 dark:text-slate-400">
               {usedTech.map((tech) => (
@@ -170,10 +152,6 @@ const projects = [
                   description: linksContent
                 }
               ]}
-              image={{
-                src: image,
-                alt: `${title} image`
-              }}
               classes={{
                 container: 'px-0 md:px-0 py-3 md:py-3 lg:py-3 gap-y-2 md:gap-y-2',
                 gridContainer: 'gap-y-2 md:gap-y-2',
