@@ -99,37 +99,26 @@ const projects = [
 
         {projects.map(({ title, description, link, beLink, feLink, usedTech }) => {
           const techContent = (
-            <div class="flex flex-col gap-1 text-xs text-slate-500 dark:text-slate-400">
-              {usedTech.map((tech) => (
-                <span>{tech}</span>
-              ))}
+            <div class="text-xs text-slate-500 dark:text-slate-400">
+              {usedTech.join(" · ")}
             </div>
           );
 
+          const linksArray = [
+            beLink && <a href={beLink} target="_blank" class="no-underline text-inherit">Back-end Github</a>,
+            feLink && <a href={feLink} target="_blank" class="no-underline text-inherit">Front-end Github</a>,
+            link && !beLink && !feLink && <a href={link} target="_blank" class="no-underline text-inherit">Github</a>,
+            !link && !beLink && !feLink && <span>No links available</span>
+          ].filter(Boolean);
+
           const linksContent = (
-            <div class="flex flex-col gap-1 text-xs text-slate-500 dark:text-slate-400">
-              {beLink && (
+            <div class="text-xs text-slate-500 dark:text-slate-400">
+              {linksArray.map((item, index) => (
                 <span>
-                  <a href={beLink} target="_blank" class="no-underline text-inherit">
-                    Back-end Github
-                  </a>
+                  {item}
+                  {index < linksArray.length - 1 && " · "}
                 </span>
-              )}
-              {feLink && (
-                <span>
-                  <a href={feLink} target="_blank" class="no-underline text-inherit">
-                    Front-end Github
-                  </a>
-                </span>
-              )}
-              {!beLink && !feLink && !link && <span>No links available</span>}
-              {link && !beLink && !feLink && (
-                <span>
-                  <a href={link} target="_blank" class="no-underline text-inherit">
-                    Github
-                  </a>
-                </span>
-              )}
+              ))}
             </div>
           );
 
