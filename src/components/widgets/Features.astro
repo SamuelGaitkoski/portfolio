@@ -26,8 +26,8 @@ const {
     defaultIcon={defaultIcon}
     classes={{
       container: '',
-      title: 'md:text-sm md:font-extrabold',
-      description: 'md:text-xs md:font-light',
+      title: `md:text-sm md:font-extrabold ${classes?.title ?? ''}`,
+      description: `md:text-xs md:font-light ${classes?.description ?? ''}`,
       icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-10 md:h-10 md:p-3 mr-3 rtl:ml-4 rtl:mr-0',
       ...((classes?.items as Record<string, never>) ?? {}),
     }}
