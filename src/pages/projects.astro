@@ -1,6 +1,10 @@
 ---
 import Content from "~/components/widgets/Content.astro";
 import Layout from '~/layouts/PageLayout.astro';
+
+import ImcCalculator from "../assets/images/projects/ImcCalculator.png";
+import memoryGame from "../assets/images/projects/memoryGame.png";
+
 import myImage from '~/assets/images/me.jpg';
 
 const title = "Samuel Almeida's Projects";
@@ -82,18 +86,18 @@ const projects = [
     image: myImage
   },
   {
-    title: 'Memory Game',
-    description: 'React Memory Game',
+    title: 'DevMemory',
+    description: 'DevMemory is a memory matching game where players must find pairs of identical images. The game tracks the time taken to complete the game and counts the number of moves made, adding an extra layer of challenge and competition.',
     link: 'https://github.com/SamuelGaitkoski/react-memory-game',
     usedTech: ['React', 'TypeScript', 'Styled Components'],
-    image: myImage
+    image: memoryGame
   },
   {
     title: 'IMC Calculator',
-    description: 'React IMC Calculator',
+    description: 'Calculate your BMI (Body Mass Index), a standard adopted by the World Health Organization to estimate the ideal weight for each person. The calculator determines your BMI based on the height and weight you enter and gives a visual indication of your result.',
     link: 'https://github.com/SamuelGaitkoski/react-imc-calculator',
     usedTech: ['React', 'TypeScript', 'CSS Modules'],
-    image: myImage
+    image: ImcCalculator
   }
 ];
 ---
