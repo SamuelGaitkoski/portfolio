@@ -5,6 +5,6 @@ https://www.samuelalmeida.com
 ## Tech Used
 
 - Astro
-- ReactJS
+- React
 - TypeScript
 - TailwindCSS
