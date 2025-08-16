@@ -18,9 +18,7 @@ export interface Props {
   theme?: string;
 }
 
-const {
-  theme = 'light'
-} = Astro.props;
+const { theme = 'light' } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative dark:border-slate-800 not-prose']}>
