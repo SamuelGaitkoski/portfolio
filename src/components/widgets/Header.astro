@@ -26,14 +26,9 @@ export interface Props {
   position?: string;
 }
 
-const {
-  id = 'header',
-  links = [],
-  isSticky = false,
-  isDark = false
-} = Astro.props;
+const { id = 'header', links = [], isSticky = false, isDark = false } = Astro.props;
 
-const githubUrl = "https://github.com/SamuelGaitkoski";
+const githubUrl = 'https://github.com/SamuelGaitkoski';
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---

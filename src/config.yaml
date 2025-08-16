@@ -21,8 +21,8 @@ metadata:
     site: ''
     cardType: summary_large_image
 
-i18n: 
-  language: en 
+i18n:
+  language: en
   textDirection: ltr
 
 apps:
@@ -53,7 +53,7 @@ apps:
       pathname: 'tag'
       robots:
         index: false
-        
+
     isRelatedPostsEnabled: false
     relatedPostsCount: 0
 

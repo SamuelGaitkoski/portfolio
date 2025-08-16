@@ -16,7 +16,7 @@ const experiences = [
     details: [
       'Maintained, developed, and improved ASP.NET MVC, Web Forms, and Windows Forms applications.',
       'Temporarily worked independently in the squad, managing all development responsibilities.',
-      'Maintained CI/CD pipelines using TeamCity and Octopus Deploy.'
+      'Maintained CI/CD pipelines using TeamCity and Octopus Deploy.',
     ],
     icon: 'tabler:briefcase',
   },
@@ -27,7 +27,7 @@ const experiences = [
     details: [
       'Progressed from intern to junior developer.',
       'Contributed to ERP systems for educational institutions.',
-      'Developed new features, resolved bugs, and maintained systems using JavaScript, .NET, SQL, and Azure.'
+      'Developed new features, resolved bugs, and maintained systems using JavaScript, .NET, SQL, and Azure.',
     ],
     icon: 'tabler:briefcase',
   },
@@ -38,7 +38,7 @@ const experiences = [
     details: [
       'Configured and maintained devices, working with electronics.',
       'Communicated with customers during maintenance processes.',
-      'Configured servers and devices on Linux Mint via command line.'
+      'Configured servers and devices on Linux Mint via command line.',
     ],
     icon: 'tabler:briefcase',
   },
@@ -52,18 +52,18 @@ const experiences = [
 <Layout metadata={metadata}>
   <section class="md:px-36">
     <Skills />
-    
+
     <Steps
       title="Experiences"
-      items={experiences.map(exp => ({
+      items={experiences.map((exp) => ({
         title: exp.title,
-        description: exp.company 
+        description: exp.company
           ? `${exp.company}<br/>${exp.period || ''}<br/>${exp.details ? exp.details.join('<br/>') : ''}`
           : '',
-          icon: exp.icon
+        icon: exp.icon,
       }))}
       classes={{
-        container: 'px-0 md:px-0'
+        container: 'px-0 md:px-0',
       }}
       image={{
         src: '~/assets/images/me.jpg',
