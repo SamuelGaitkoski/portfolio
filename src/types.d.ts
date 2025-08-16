@@ -1,6 +1,3 @@
-import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-import type { HTMLAttributes, ImageMetadata } from 'astro/types';
-
 export interface MetaData {
   title?: string;
   ignoreTitleTemplate?: boolean;
