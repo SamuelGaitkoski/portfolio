@@ -43,11 +43,12 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 >
   <div class="absolute inset-0"></div>
   <div class="relative text-default py-3 px-3 md:px-36 md:py-1 mx-auto w-full flex items-center justify-between">
-    <div class="flex items-center">
+    <div class="w-full flex items-center justify-between">
       <a href={getHomePermalink()}>
         <Logo />
       </a>
-      <div class="md:hidden">
+      <div class="flex items-center md:hidden">
+        <ToggleTheme iconClass="w-6 h-6 md:w-4 md:h-4 md:inline-block" />
         <ToggleMenu />
       </div>
     </div>
@@ -102,7 +103,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         }
       </ul>
       <div class="flex">
-        <ToggleTheme iconClass="w-6 h-6 md:w-4 md:h-4 md:inline-block" />
+        <ToggleTheme iconClass="w-6 h-6 md:w-4 md:h-4 hidden md:inline-block" />
         <a
           class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
           aria-label="GitHub"
