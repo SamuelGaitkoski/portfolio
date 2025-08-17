@@ -42,7 +42,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   {...id ? { id } : {}}
 >
   <div class="absolute inset-0"></div>
-  <div class="relative text-default py-3 px-3 md:px-36 md:py-1 mx-auto w-full flex items-center justify-between">
+  <div class="relative text-default py-3 px-3 md:px-36 md:py-1 w-full flex items-center justify-between">
     <div class="w-full flex items-center justify-between">
       <a href={getHomePermalink()}>
         <Logo />
@@ -53,11 +53,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       </div>
     </div>
     <nav
-      class="items-center w-full md:w-auto hidden md:flex text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
+      class="items-center w-full hidden md:flex text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-end"
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.7375rem] tracking-[0.01rem] font-medium md:justify-center"
+        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.7375rem] tracking-[0.01rem] font-medium md:justify-end"
       >
         {
           links.map(({ text, href, links }) => (
