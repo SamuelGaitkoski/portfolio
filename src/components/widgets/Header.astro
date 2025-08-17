@@ -101,9 +101,19 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             </li>
           ))
         }
+        <li class="md:hidden">
+          <a
+            class="flex items-center whitespace-nowrap px-4 py-3 font-extrabold hover:text-link dark:hover:text-white"
+            href={githubUrl}
+            target="_blank"
+            aria-label="GitHub"
+          >
+            GitHub
+          </a>
+        </li>
       </ul>
-      <div class="flex">
-        <ToggleTheme iconClass="w-6 h-6 md:w-4 md:h-4 hidden md:inline-block" />
+      <div class="hidden md:flex">
+        <ToggleTheme iconClass="w-6 h-6 md:w-4 md:h-4" />
         <a
           class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
           aria-label="GitHub"
@@ -111,7 +121,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           target="_blank"
         >
           <Icon name="tabler:brand-github" class="w-4 h-4" />
-        </a>
+      </a>
       </div>
     </nav>
   </div>
