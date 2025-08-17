@@ -32,9 +32,9 @@ const {
     subtitle={subtitle}
     tagline={tagline}
     classes={{
-      container: 'max-w-xl sm:mx-auto lg:max-w-2xl text-center',
+      container: `max-w-xl sm:mx-auto lg:max-w-2xl ${classes?.headlineContainer ?? ''}`,
       title: 'text-3xl md:text-4xl font-bold tracking-tighter font-heading',
-      subtitle: 'max-w-3xl mx-auto sm:text-center text-xs text-muted dark:text-slate-400 mt-4 md?mt-2',
+      subtitle: 'max-w-3xl mx-auto sm:text-center text-sm md:text-xs text-muted dark:text-slate-400 mt-4 md:mt-2',
     }}
   />
   <div class="mx-auto max-w-7xl">
@@ -49,7 +49,7 @@ const {
           classes={{
             container: `gap-y-4 md:gap-y-8 ${classes?.gridContainer ?? ''}`,
             panel: `p-1 items-center text-primary bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition ${classes?.panel ?? ''}`,
-            title: `text-sm font-bold leading-6 dark:text-white rtl:ml-0 rtl:mr-2 ${classes?.title ?? ''}`,
+            title: `text-md md:text-sm font-extrabold md:font-bold leading-6 dark:text-white rtl:ml-0 rtl:mr-2 ${classes?.title ?? ''}`,
             description: `text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2 ${classes?.description ?? ''}`,
             icon: `flex h-12 w-12 items-center justify-center rounded-full text-gray-50 p-1 ${classes?.icon ?? ''}`,
             action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
