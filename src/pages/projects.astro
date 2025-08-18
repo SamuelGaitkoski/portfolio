@@ -103,7 +103,9 @@ const projects = [
         {
           projects.map(({ title, description, link, beLink, feLink, usedTech }) => {
             const techContent = (
-              <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">{usedTech.join(' · ')}</div>
+              <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
+                {usedTech.join(' · ')}
+              </div>
             );
 
             const linksArray = [
