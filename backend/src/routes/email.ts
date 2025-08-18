@@ -7,6 +7,8 @@ const router = Router();
  * @swagger
  * /api/email/send:
  *   post:
+ *     tags:
+ *       - Email           
  *     summary: Send an email
  *     description: Sends an email from a frontend form to your inbox
  *     requestBody:
