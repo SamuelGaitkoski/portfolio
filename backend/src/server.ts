@@ -5,7 +5,7 @@ import emailRouter from "./routes/email";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.POST || 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
