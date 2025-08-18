@@ -103,7 +103,7 @@ const projects = [
         {
           projects.map(({ title, description, link, beLink, feLink, usedTech }) => {
             const techContent = (
-              <div class="text-sm md:text-xs text-black dark:text-slate-400">{usedTech.join(' · ')}</div>
+              <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">{usedTech.join(' · ')}</div>
             );
 
             const linksArray = [
@@ -126,7 +126,7 @@ const projects = [
             ].filter(Boolean);
 
             const linksContent = (
-              <div class="text-sm md:text-xs font-medium text-black dark:text-slate-400">
+              <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
                 {linksArray.map((item, index) => (
                   <span>
                     {item}
@@ -165,8 +165,8 @@ const projects = [
                   gridContainer: 'gap-y-2 md:gap-y-2',
                   panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
                   title: 'text-black',
-                  description: 'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-medium',
-                  icon: 'h-6 w-6 text-black dark:text-white',
+                  description: 'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-semibold md:font-normal',
+                  icon: 'h-7 md:h-6 w-7 md:w-6 text-black dark:text-white',
                 }}
               >
                 <Fragment slot="content">
