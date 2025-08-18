@@ -37,7 +37,7 @@ const { theme = 'light' } = Astro.props;
                   aria-label={ariaLabel}
                   href={href}
                 >
-                  {icon && <Icon name={icon} class="w-4 h-4" />}
+                  {icon && <Icon name={icon} class="w-5 md:w-4 h-5 md:h-4" />}
                 </a>
               </li>
             ))}
@@ -47,7 +47,7 @@ const { theme = 'light' } = Astro.props;
         )
       }
 
-      <div class="text-xs font-light mr-4 dark:text-muted">
+      <div class="text-xs font-normal md:font-extralight mr-4 dark:text-muted">
         <Fragment set:html={footNote} />
       </div>
     </div>
