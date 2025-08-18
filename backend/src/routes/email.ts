@@ -18,12 +18,20 @@ const router = Router();
  *           schema:
  *             type: object
  *             properties:
- *               from:
+ *               name:
  *                 type: string
- *                 example: "user@example.com"
+ *                 example: "John Doe"
+ *               subject:
+ *                 type: string
+ *                 example: "Job opportunity"
  *               message:
  *                 type: string
- *                 example: "This is a test message"
+ *                 example: "Hello, I'm interested in your work and would like to connect."
+ *             required:
+ *               - name
+ *               - email
+ *               - subject
+ *               - message
  *     responses:
  *       200:
  *         description: Email sent successfully

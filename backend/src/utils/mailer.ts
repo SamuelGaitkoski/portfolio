@@ -13,15 +13,16 @@ const transporter = nodemailer.createTransport({
 
 /**
  * Sends an email to myself.
- * @param fromEmail Email address of the person submitting the form
+ * @param name Name of the person submitting the form
+ * @param subject Subject provided by the person
  * @param message Message content
  */
-export const sendMail = async (fromEmail: string, message: string) => {
+export const sendMail = async (name: string, subject: string, message: string) => {
   const mailOptions = {
-    from: fromEmail,
+    from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
-    subject: "New message from portfolio website",
-    text: message
+    subject: `Message from Portfolio Website - ${subject}`,
+    text: `Name: ${name}\n\nMessage:\n${message}`,
   }
 
   await transporter.sendMail(mailOptions);
