@@ -8,11 +8,18 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+/**
+ * Sends an email to myself.
+ * @param fromEmail Email address of the person submitting the form
+ * @param message Message content
+ */
 export const sendMail = async (fromEmail: string, message: string) => {
-  await transporter.sendMail({
+  const mailOptions = {
     from: fromEmail,
     to: process.env.EMAIL_USER,
     subject: "New message from portfolio website",
     text: message
-  });
+  }
+
+  await transporter.sendMail(mailOptions);
 };
