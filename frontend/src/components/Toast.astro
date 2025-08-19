@@ -3,13 +3,13 @@ interface Props {
   type: 'success' | 'error';
   message: string;
 }
-
-const { type, message } = Astro.props;
 ---
 
 <script type="module">
   import 'notyf/notyf.min.css';
   import { Notyf } from 'notyf';
+
+  const { type, message } = Astro.props;
 
   const notyf = new Notyf({
     duration: 3000,
