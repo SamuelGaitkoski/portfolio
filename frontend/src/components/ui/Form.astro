@@ -6,7 +6,7 @@ import Toast from '../Toast.astro';
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
 
-<Toast />
+<Toast client:load />
 
 <form id="contact-form">
   {
