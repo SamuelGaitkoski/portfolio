@@ -2,6 +2,8 @@
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
+import toast from 'react-hot-toast';
+
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
 
@@ -113,10 +115,10 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
         throw new Error('Failed to send email');
       }
 
-      alert('Email sent successfully!');
+      toast.success('Email sent successfully!');
       form.reset();
     } catch {
-      alert('Error sending email');
+      toast.error('Error sending email, try again later!');
     }
   });
 </script>
