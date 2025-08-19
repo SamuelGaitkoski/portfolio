@@ -99,14 +99,14 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
     const data = {
       name: formData.get('name')?.toString() ?? '',
       subject: formData.get('subject')?.toString() ?? '',
-      message: formData.get('message')?.toString() ?? ''
+      message: formData.get('message')?.toString() ?? '',
     };
 
     try {
       const res = await fetch('/api/email/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
 
       if (!res.ok) {
