@@ -8,5 +8,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "@vercel/node"]
-  }
+  },
+  "include": ["api/**/*.ts", "frontend/**/*.ts"]
 }
