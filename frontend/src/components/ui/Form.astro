@@ -1,9 +1,11 @@
 ---
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
+import Toast from '../Toast.astro';
 
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
+<Toast />
 
 <form id="contact-form">
   {
@@ -113,21 +115,10 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
         throw new Error('Failed to send email');
       }
 
-      document.body.insertAdjacentHTML(
-        'beforeend',
-        `<astro-island>
-        <Toast type="success" message="Email sent successfully!" />
-      </astro-island>`
-      );
-
+      window.showToast('success', 'Email sent successfully!');
       form.reset();
     } catch {
-      document.body.insertAdjacentHTML(
-        'beforeend',
-        `<astro-island>
-        <Toast type="error" message="Error sending email, try again later!" />
-      </astro-island>`
-      );
+      window.showToast('error', 'Error sending email, try again later!');
     }
   });
 </script>
