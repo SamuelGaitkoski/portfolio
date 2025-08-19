@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import emailRouter from "./routes/email";
 import { setupSwagger } from "./swagger";
 
@@ -7,6 +8,9 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable CORS for my frontend
+app.use(cors({ origin: "http://localhost:3000" })); // allow frontend requests
 
 // Middleware
 app.use(express.json());
