@@ -113,15 +113,21 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
         throw new Error('Failed to send email');
       }
 
-      document.body.insertAdjacentHTML('beforeend', `<astro-island>
+      document.body.insertAdjacentHTML(
+        'beforeend',
+        `<astro-island>
         <Toast type="success" message="Email sent successfully!" />
-      </astro-island>`);
+      </astro-island>`
+      );
 
       form.reset();
     } catch {
-      document.body.insertAdjacentHTML('beforeend', `<astro-island>
+      document.body.insertAdjacentHTML(
+        'beforeend',
+        `<astro-island>
         <Toast type="error" message="Error sending email, try again later!" />
-      </astro-island>`);
+      </astro-island>`
+      );
     }
   });
 </script>

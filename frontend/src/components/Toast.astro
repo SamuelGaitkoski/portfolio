@@ -18,14 +18,14 @@ interface Props {
       {
         type: 'success',
         background: document.documentElement.classList.contains('dark') ? '#16a34a' : '#22c55e',
-        icon: false
+        icon: false,
       },
       {
         type: 'error',
         background: document.documentElement.classList.contains('dark') ? '#dc2626' : '#ef4444',
-        icon: false
-      }
-    ]
+        icon: false,
+      },
+    ],
   });
 
   notyf[type](message);
