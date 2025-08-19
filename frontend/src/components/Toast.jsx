@@ -4,18 +4,21 @@ import 'notyf/notyf.min.css';
 
 export default function Toast() {
   useEffect(() => {
+    const primary = getComputedStyle(document.documentElement)
+      .getPropertyValue('--aw-color-primary');
+
     const notyf = new Notyf({
       duration: 3000,
       position: { x: 'right', y: 'top' },
       types: [
         {
           type: 'success',
-          background: document.documentElement.classList.contains('dark') ? '#16a34a' : '#22c55e',
+          background: primary,
           icon: false,
         },
         {
           type: 'error',
-          background: document.documentElement.classList.contains('dark') ? '#dc2626' : '#ef4444',
+          background: primary,
           icon: false,
         },
       ],
