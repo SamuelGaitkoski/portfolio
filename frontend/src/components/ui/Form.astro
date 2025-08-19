@@ -1,7 +1,8 @@
 ---
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
-import Toast from '../Toast.astro';
+
+import Toast from '../Toast';
 
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
@@ -92,35 +93,33 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
 </form>
 
 <script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form');
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-      const formData = new FormData(form);
-      const data = {
-        name: formData.get('name')?.toString() ?? '',
-        subject: formData.get('subject')?.toString() ?? '',
-        message: formData.get('message')?.toString() ?? '',
-      };
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name')?.toString() ?? '',
+      subject: formData.get('subject')?.toString() ?? '',
+      message: formData.get('message')?.toString() ?? '',
+    };
 
-      try {
-        const res = await fetch('/api/email/send', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
+    try {
+      const res = await fetch('/api/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-        if (!res.ok) {
-          throw new Error();
-        }
-
-        window.showToast('success', 'Email sent successfully!');
-        form.reset();
-      } catch {
-        window.showToast('error', 'Error sending email, try again later!');
+      if (!res.ok) {
+        throw new Error();
       }
-    });
+
+      window.showToast('success', 'Email sent successfully!');
+      form.reset();
+    } catch {
+      window.showToast('error', 'Error sending email, try again later!');
+    }
   });
 </script>
