@@ -5,7 +5,7 @@ import Button from '~/components/ui/Button.astro';
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
 
-<form>
+<form id="contact-form">
   {
     inputs &&
       inputs.map(
@@ -23,6 +23,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                 id={name}
                 autocomplete={autocomplete}
                 placeholder={placeholder}
+                required
                 class="py-2 px-3 block w-full text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
               />
             </div>
@@ -41,6 +42,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 2}
           placeholder={textarea.placeholder}
+          required
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
         />
       </div>
@@ -85,3 +87,36 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
     )
   }
 </form>
+
+<script type="module">
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get('name')?.toString() ?? '',
+      subject: formData.get('subject')?.toString() ?? '',
+      message: formData.get('message')?.toString() ?? ''
+    };
+
+    try {
+      const res = await fetch('http://localhost:3000/api/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      alert('Email sent successfully!');
+      form.reset();
+    } catch {
+      alert('Error sending email');
+    }
+  });
+</script>
