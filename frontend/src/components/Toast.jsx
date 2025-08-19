@@ -4,8 +4,7 @@ import 'notyf/notyf.min.css';
 
 export default function Toast() {
   useEffect(() => {
-    const primary = getComputedStyle(document.documentElement)
-      .getPropertyValue('--aw-color-primary');
+    const primary = getComputedStyle(document.documentElement).getPropertyValue('--aw-color-primary');
 
     const notyf = new Notyf({
       duration: 3000,
