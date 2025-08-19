@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Enable CORS for my frontend
-app.use(cors({ origin: "http://localhost:3000" })); // allow frontend requests
+app.use(cors({ origin: "http://localhost:4321" }));
 
 // Middleware
 app.use(express.json());
