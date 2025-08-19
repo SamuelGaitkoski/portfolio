@@ -92,34 +92,35 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
 </form>
 
 <script type="module">
-  const form = document.getElementById('contact-form');
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-    const formData = new FormData(form);
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name')?.toString() ?? '',
+        subject: formData.get('subject')?.toString() ?? '',
+        message: formData.get('message')?.toString() ?? '',
+      };
 
-    const data = {
-      name: formData.get('name')?.toString() ?? '',
-      subject: formData.get('subject')?.toString() ?? '',
-      message: formData.get('message')?.toString() ?? '',
-    };
+      try {
+        const res = await fetch('/api/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
 
-    try {
-      const res = await fetch('/api/email/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+        if (!res.ok) {
+          throw new Error();
+        }
 
-      if (!res.ok) {
-        throw new Error('Failed to send email');
+        window.showToast('success', 'Email sent successfully!');
+        form.reset();
+      } catch {
+        window.showToast('error', 'Error sending email, try again later!');
       }
-
-      window.showToast('success', 'Email sent successfully!');
-      form.reset();
-    } catch {
-      window.showToast('error', 'Error sending email, try again later!');
-    }
+    });
   });
 </script>
