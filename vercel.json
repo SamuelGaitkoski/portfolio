@@ -1,6 +1,6 @@
 {
   "builds": [
-    { "src": "frontend/package.json", "use": "@vercel/astro" },
+    { "src": "frontend/package.json", "use": "@vercel/static-build" },
     { "src": "api/**/*.ts", "use": "@vercel/node" }
   ],
   "routes": [
