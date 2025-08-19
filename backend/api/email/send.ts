@@ -29,16 +29,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: false,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_USER,
       subject: "Message from Portfolio Website",
       text: `Name: ${name}\n\nSubject: ${subject}\n\nMessage:\n${message}`,
     });
