@@ -103,7 +103,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
     };
 
     try {
-      const res = await fetch('http://localhost:3000/api/email/send', {
+      const res = await fetch('/api/email/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
