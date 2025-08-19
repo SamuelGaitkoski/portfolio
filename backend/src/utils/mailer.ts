@@ -21,8 +21,8 @@ export const sendMail = async (name: string, subject: string, message: string) =
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
-    subject: `Message from Portfolio Website - ${subject}`,
-    text: `Name: ${name}\n\nMessage:\n${message}`,
+    subject: "Message from Portfolio Website",
+    text: `Name: ${name}\n\nSubject: ${subject}\n\nMessage:\n${message}`,
   }
 
   await transporter.sendMail(mailOptions);
