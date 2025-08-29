@@ -9,6 +9,8 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "start": "astro dev",
     "build": "astro build",
     "vercel-build": "astro build",
