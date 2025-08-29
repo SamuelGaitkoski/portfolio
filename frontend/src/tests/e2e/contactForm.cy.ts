@@ -26,6 +26,19 @@ describe("Contact form", () => {
   });
 
   it("shows error toast when API fails", () => {
+    cy.intercept("POST", "/api/email/send", {
+      statusCode: 500,
+      body: {},
+    }).as("sendEmailFail");
 
+    cy.get('input[name="name"]').type("John Doe");
+    cy.get('input[name="subject"]').type("Hello there");
+    cy.get('textarea[name="message"]').type("This is a test message");
+
+    cy.get('button[type="submit"]').click();
+
+    cy.wait("@sendEmailFail");
+
+    cy.contains("Error sending email, try again later!").should("be.visible");
   });
 });
