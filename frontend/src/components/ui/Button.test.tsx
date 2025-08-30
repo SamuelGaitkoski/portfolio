@@ -21,7 +21,7 @@ describe('Button.astro', () => {
       props: {
         text: 'Go to link',
         target: '_blank',
-      },      
+      },
     });
 
     expect(html).toContain('<a');
@@ -50,7 +50,7 @@ describe('Button.astro', () => {
         type: 'button',
         text: 'With icon',
         icon: 'check',
-      },    
+      },
     });
 
     expect(html).toContain('Icon');
