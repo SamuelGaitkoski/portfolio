@@ -10,12 +10,14 @@ beforeEach(async () => {
 
 test('Form renders with all fields', async () => {
   const html = await container.renderToString(Form, {
-    inputs: [
-      { name: 'name', label: 'Name' },
-      { name: 'subject', label: 'Subject' },
-    ],
-    textarea: { name: 'message', label: 'Message' },
-    button: 'Send',
+    props: {
+      inputs: [
+        { name: 'name', label: 'Name' },
+        { name: 'subject', label: 'Subject' },
+      ],
+      textarea: { name: 'message', label: 'Message' },
+      button: 'Send',
+    },
   });
 
   expect(html).toContain('Name');
