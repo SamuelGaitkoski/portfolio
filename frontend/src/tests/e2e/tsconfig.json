@@ -3,8 +3,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,
-    "esModuleInterop": true,
+    "isolatedModules": false,
     "types": ["cypress"]
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.cy.ts"]
 }
