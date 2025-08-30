@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-import { describe, it, expect } from 'vitest';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import Button from './Button.astro';
 
