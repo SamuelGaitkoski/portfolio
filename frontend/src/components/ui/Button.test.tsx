@@ -5,8 +5,10 @@ describe('Button.astro', () => {
   it('renders a button element when type is provided', async () => {
     const container = await AstroContainer.create();
     const html = await container.renderToString(Button, {
-      type: 'button',
-      text: 'Click me',
+      props: {
+        type: 'button',
+        text: 'Click me',
+      },
     });
 
     expect(html).toContain('<button');
@@ -16,8 +18,10 @@ describe('Button.astro', () => {
   it('renders an anchor element when no type is provided', async () => {
     const container = await AstroContainer.create();
     const html = await container.renderToString(Button, {
-      text: 'Go to link',
-      target: '_blank',
+      props: {
+        text: 'Go to link',
+        target: '_blank',
+      },      
     });
 
     expect(html).toContain('<a');
@@ -29,9 +33,11 @@ describe('Button.astro', () => {
   it('applies correct variant class', async () => {
     const container = await AstroContainer.create();
     const html = await container.renderToString(Button, {
-      type: 'button',
-      text: 'Primary',
-      variant: 'primary',
+      props: {
+        type: 'button',
+        text: 'Primary',
+        variant: 'primary',
+      },
     });
 
     expect(html).toContain('btn-primary');
@@ -40,9 +46,11 @@ describe('Button.astro', () => {
   it('renders icon if provided', async () => {
     const container = await AstroContainer.create();
     const html = await container.renderToString(Button, {
-      type: 'button',
-      text: 'With icon',
-      icon: 'check',
+      props: {
+        type: 'button',
+        text: 'With icon',
+        icon: 'check',
+      },    
     });
 
     expect(html).toContain('Icon');
