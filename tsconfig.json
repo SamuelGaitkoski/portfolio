@@ -6,9 +6,7 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "composite": true,
     "types": ["node", "@vercel/node"]
   },
-  "include": ["api/**/*.ts", "frontend/**/*.ts"],
-  "exclude": ["src/tests/e2e"]
+  "include": ["api/**/*.ts", "frontend/**/*.ts"]
 }
