@@ -1,6 +1,6 @@
 # Samuel Almeida's Personal Site
 
-https://www.samuelalmeida.com
+https://www.samuelgda.com
 
 ## Tech Used
 
@@ -8,3 +8,5 @@ https://www.samuelalmeida.com
 - React
 - TypeScript
 - TailwindCSS
+- Vitest (unit testing)
+- Playwright (end-to-end testing)
