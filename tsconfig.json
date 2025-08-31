@@ -8,5 +8,6 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "@vercel/node"]
   },
-  "include": ["api/**/*.ts", "frontend/**/*.ts"]
+  "include": ["api/**/*.ts", "frontend/**/*.ts"],
+  "exclude": ["src/tests/e2e"]
 }
