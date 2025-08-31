@@ -7,6 +7,6 @@
     "isolatedModules": false,
     "types": ["cypress"]
   },
-  "include": ["**/*.cy.ts"],
+  "include": ["**/*.cy.ts", "contactForm.spec.ts"],
   "exclude": []
 }
