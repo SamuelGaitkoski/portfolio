@@ -1,59 +1,61 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import Button from './Button.astro';
+import { test, expect, beforeEach } from 'vitest';
 
-describe('Button.astro', () => {
-  it('renders a button element when type is provided', async () => {
-    const container = await AstroContainer.create();
-    const html = await container.renderToString(Button, {
-      props: {
-        type: 'button',
-        text: 'Click me',
-      },
-    });
+let container: AstroContainer;
 
-    expect(html).toContain('<button');
-    expect(html).toContain('Click me');
+beforeEach(async () => {
+  container = await AstroContainer.create();
+});
+
+test('renders a button element when type is provided', async () => {
+  const html = await container.renderToString(Button, {
+    props: {
+      type: 'button',
+      text: 'Click me',
+    },
   });
 
-  it('renders an anchor element when no type is provided', async () => {
-    const container = await AstroContainer.create();
-    const html = await container.renderToString(Button, {
-      props: {
-        text: 'Go to link',
-        target: '_blank',
-      },
-    });
+  expect(html).toContain('<button');
+  expect(html).toContain('Click me');
+});
 
-    expect(html).toContain('<a');
-    expect(html).toContain('Go to link');
-    expect(html).toContain('target="_blank"');
-    expect(html).toContain('rel="noopener noreferrer"');
+test('renders an anchor element when no type is provided', async () => {
+  const html = await container.renderToString(Button, {
+    props: {
+      text: 'Go to link',
+      target: '_blank',
+    },
   });
 
-  it('applies correct variant class', async () => {
-    const container = await AstroContainer.create();
-    const html = await container.renderToString(Button, {
-      props: {
-        type: 'button',
-        text: 'Primary',
-        variant: 'primary',
-      },
-    });
+  expect(html).toContain('<a');
+  expect(html).toContain('Go to link');
+  expect(html).toContain('target="_blank"');
+  expect(html).toContain('rel="noopener noreferrer"');
+});
 
-    expect(html).toContain('btn-primary');
+test('applies correct variant class', async () => {
+  const html = await container.renderToString(Button, {
+    props: {
+      type: 'button',
+      text: 'Primary',
+      variant: 'primary',
+    },
   });
 
-  it('renders icon if provided', async () => {
-    const container = await AstroContainer.create();
-    const html = await container.renderToString(Button, {
-      props: {
-        type: 'button',
-        text: 'With icon',
-        icon: 'check',
-      },
-    });
+  expect(html).toContain('btn-primary');
+});
 
-    expect(html).toContain('Icon');
-    expect(html).toContain('check');
+test('renders icon if provided', async () => {
+  const html = await container.renderToString(Button, {
+    props: {
+      type: 'button',
+      text: 'With icon',
+      icon: 'check',
+    },
   });
+
+  // Adjust depending on how your Icon component renders
+  expect(html).toContain('Icon');
+  expect(html).toContain('check');
 });
