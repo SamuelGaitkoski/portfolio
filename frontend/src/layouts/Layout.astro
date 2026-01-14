@@ -19,12 +19,13 @@ export interface Props {
 }
 
 const { language, textDirection } = I18N;
+const { metadata } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={language} dir={textDirection} class="2xl:text-[20px]">
   <head>
-    <CommonMeta />
+    <CommonMeta metadata={metadata} />
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
