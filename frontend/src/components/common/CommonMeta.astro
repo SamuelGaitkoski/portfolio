@@ -1,8 +1,23 @@
 ---
+import { SITE, METADATA } from 'astrowind:config';
+
 import { getAsset } from '~/utils/permalinks';
+
+import type { MetaData } from '~/types';
+
+const { metadata } = Astro.props as { metadata?: MetaData };
+
+const defaultTitle = METADATA?.title?.default || SITE?.name || '';
+const title = metadata?.title ?? defaultTitle;
+const titleTemplate = METADATA?.title?.template || '%s';
+const pageTitle = metadata?.ignoreTitleTemplate || !title
+  ? title
+  : titleTemplate.replace('%s', title);
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{pageTitle && <title>{pageTitle}</title>}
 
 <link rel="sitemap" href={getAsset('/sitemap-index.xml')} />
