@@ -7,7 +7,7 @@ site:
 metadata:
   title:
     default: Samuel Almeida
-    template: '%s — Portfolio'
+    template: '%s'
   description: 'Portfolio website of Samuel Almeida.'
   robots:
     index: true
