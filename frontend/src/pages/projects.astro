@@ -13,7 +13,7 @@ const projects = [
     title: 'ESSA E-COMMERCE',
     description:
       'A scalable e-commerce platform built for multiple businesses, covering catalog management, order flow, billing, and integrations for shipping, invoicing, and payments.',
-    link: 'https://github.com/SamuelGaitkoski',
+    website: 'https://example.com',
     usedTech: [
       'C#',
       '.NET 8.0',
@@ -153,7 +153,7 @@ const projects = [
         </section>
 
         {
-          projects.map(({ title, description, link, beLink, feLink, usedTech }) => {
+          projects.map(({ title, description, link, website, beLink, feLink, usedTech }) => {
             const techContent = (
               <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
                 {usedTech.join(' · ')}
@@ -161,6 +161,11 @@ const projects = [
             );
 
             const linksArray = [
+              website && (
+                <a href={website} target="_blank" class="no-underline text-inherit">
+                  Website
+                </a>
+              ),
               beLink && (
                 <a href={beLink} target="_blank" class="no-underline text-inherit">
                   Back-end Github
@@ -171,12 +176,12 @@ const projects = [
                   Front-end Github
                 </a>
               ),
-              link && !beLink && !feLink && (
+              link && !website && !beLink && !feLink && (
                 <a href={link} target="_blank" class="no-underline text-inherit">
                   Github
                 </a>
               ),
-              !link && !beLink && !feLink && <span>No links available</span>,
+              !website && !link && !beLink && !feLink && <span>No links available</span>,
             ].filter(Boolean);
 
             const linksContent = (
