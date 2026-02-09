@@ -39,7 +39,7 @@ const formatStartedAt = (value: string | undefined) => {
   if (!date) {
     return null;
   }
-  return `${monthNames[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
+  return `${monthNames[date.getUTCMonth()]}`;
 };
 
 type Project = {
