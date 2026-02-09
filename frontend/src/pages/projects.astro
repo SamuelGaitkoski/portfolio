@@ -526,50 +526,65 @@ const statusPercent = statusOrder.reduce(
   </style>
 
   <script is:inline>
-    const statusPills = Array.from(document.querySelectorAll('.status-pill'));
-    const projectCards = Array.from(document.querySelectorAll('[data-project-card]'));
-    const yearSections = Array.from(document.querySelectorAll('[data-year-section]'));
-
     const formatCountLabel = (count) => `${count} ${count === 1 ? 'project' : 'projects'}`;
 
-    const updateYearSection = (section, activeStatus) => {
-      const cards = Array.from(section.querySelectorAll('[data-project-card]'));
-      const countEl = section.querySelector('[data-year-count]');
-      const total = Number(section.dataset.yearTotal || cards.length);
-      const visible = cards.filter((card) => card.style.display !== 'none');
-      const visibleCount = visible.length;
+    const applyProjectFilters = (activeStatus) => {
+      const statusPills = Array.from(document.querySelectorAll('.status-pill'));
+      const projectCards = Array.from(document.querySelectorAll('[data-project-card]'));
+      const yearSections = Array.from(document.querySelectorAll('[data-year-section]'));
 
-      if (countEl) {
-        countEl.textContent = formatCountLabel(activeStatus === 'ALL' ? total : visibleCount);
+      if (statusPills.length === 0) {
+        return;
       }
 
-      section.style.display = visibleCount > 0 ? '' : 'none';
-    };
+      const updateYearSection = (section) => {
+        const cards = Array.from(section.querySelectorAll('[data-project-card]'));
+        const countEl = section.querySelector('[data-year-count]');
+        const total = Number(section.dataset.yearTotal || cards.length);
+        const visible = cards.filter((card) => card.style.display !== 'none');
+        const visibleCount = visible.length;
 
-    const applyFilter = (activeStatus) => {
+        if (countEl) {
+          countEl.textContent = formatCountLabel(activeStatus === 'ALL' ? total : visibleCount);
+        }
+
+        section.style.display = visibleCount > 0 ? '' : 'none';
+      };
+
+      statusPills.forEach((pill) => {
+        pill.classList.toggle('is-active', pill.dataset.statusFilter === activeStatus);
+      });
+
       projectCards.forEach((card) => {
         const status = card.dataset.projectStatus || 'COMPLETED';
         const show = activeStatus === 'ALL' || status === activeStatus;
         card.style.display = show ? '' : 'none';
       });
 
-      yearSections.forEach((section) => updateYearSection(section, activeStatus));
+      yearSections.forEach((section) => updateYearSection(section));
     };
 
-    const setActive = (activeStatus) => {
+    const initProjectFilters = () => {
+      const statusPills = Array.from(document.querySelectorAll('.status-pill'));
+      if (statusPills.length === 0) {
+        return;
+      }
+
       statusPills.forEach((pill) => {
-        pill.classList.toggle('is-active', pill.dataset.statusFilter === activeStatus);
+        pill.addEventListener('click', () => {
+          const nextStatus = pill.dataset.statusFilter || 'ALL';
+          applyProjectFilters(nextStatus);
+        });
       });
-      applyFilter(activeStatus);
+
+      applyProjectFilters('ALL');
     };
 
-    statusPills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        const nextStatus = pill.dataset.statusFilter || 'ALL';
-        setActive(nextStatus);
-      });
-    });
-
-    setActive('ALL');
+    document.addEventListener('astro:page-load', initProjectFilters);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initProjectFilters);
+    } else {
+      initProjectFilters();
+    }
   </script>
 </Layout>
