@@ -387,129 +387,143 @@ const yearOrder = Object.keys(groupedProjects)
 
         {
           yearOrder.map((year) => (
-            <section class="mb-10 md:mb-12">
-              <div class="mb-6 flex items-center justify-between">
+            <section class="mb-12 md:mb-14">
+              <div class="mb-6 flex flex-wrap items-center gap-4">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-primary">{year}</h2>
+                <div class="h-px flex-1 bg-primary/30" />
                 <span class="text-xs uppercase tracking-[0.2em] text-slate-400">
                   {groupedProjects[year].length} projects
                 </span>
               </div>
-              {groupedProjects[year].map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel, appStoreLink, playStoreLink, status, specs, _dateLabel }) => {
-                const techContent = (
-                  <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                    {usedTech.join(' · ')}
-                  </div>
-                );
-
-                const linksArray = [
-                  websiteLink && (
-                    <a href={websiteLink} target="_blank" class="no-underline text-inherit">
-                      Website
-                    </a>
-                  ),
-                  storeLink && (
-                    <a href={storeLink} target="_blank" class="no-underline text-inherit">
-                      {storeLabel || 'Store'}
-                    </a>
-                  ),
-                  appStoreLink && (
-                    <a href={appStoreLink} target="_blank" class="no-underline text-inherit">
-                      App Store
-                    </a>
-                  ),
-                  playStoreLink && (
-                    <a href={playStoreLink} target="_blank" class="no-underline text-inherit">
-                      Google Play
-                    </a>
-                  ),
-                  beLink && (
-                    <a href={beLink} target="_blank" class="no-underline text-inherit">
-                      Back-end Github
-                    </a>
-                  ),
-                  feLink && (
-                    <a href={feLink} target="_blank" class="no-underline text-inherit">
-                      Front-end Github
-                    </a>
-                  ),
-                  githubLink && !websiteLink && !beLink && !feLink && (
-                    <a href={githubLink} target="_blank" class="no-underline text-inherit">
-                      Github
-                    </a>
-                  ),
-                  !websiteLink && !githubLink && !beLink && !feLink && !storeLink && !appStoreLink && !playStoreLink && <span>No links available</span>,
-                ].filter(Boolean);
-
-                const linksContent = (
-                  <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                    {linksArray.map((item, index) => (
-                      <span>
-                        {item}
-                        {index < linksArray.length - 1 && ' · '}
-                      </span>
-                    ))}
-                  </div>
-                );
-
-                return (
-                  <Content
-                    items={[
-                      {
-                        icon: 'mdi:package-variant-closed',
-                        title: 'Description',
-                        description: description,
-                      },
-                      {
-                        icon: 'mdi:code-tags',
-                        title: 'Technologies',
-                        description: techContent,
-                      },
-                      {
-                        icon: 'mdi:external-link',
-                        title: 'Links',
-                        description: linksContent,
-                      },
-                    ]}
-                    classes={{
-                      container: 'p-6 md:p-6 lg:p-6 my-6 bg-blue-50 dark:bg-slate-800 rounded-md',
-                      gridContainer: 'gap-y-2 md:gap-y-2',
-                      panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
-                      title: 'text-black',
-                      description: 'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-semibold md:font-normal',
-                      icon: 'h-7 md:h-6 w-7 md:w-6 text-black dark:text-white',
-                    }}
-                  >
-                    <Fragment slot="content">
-                      <div class="flex flex-wrap items-center justify-between gap-3">
-                        <div class="flex flex-wrap items-center gap-2">
-                          {_dateLabel && (
-                            <span class="text-[11px] uppercase tracking-[0.2em] text-slate-400">
-                              {_dateLabel}
-                            </span>
-                          )}
-                          <h3 class="text-2xl font-extrabold tracking-tight dark:text-white md:text-xl">{title}</h3>
-                          {status && (
-                            <span class="rounded-full border border-black/10 bg-white/60 px-2 py-1 text-[10px] uppercase text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
-                              {status}
-                            </span>
-                          )}
-                        </div>
-                        {specs && specs.length > 0 && (
-                          <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-wide text-black dark:text-slate-300">
-                            {specs.map((spec) => (
-                              <span class="rounded-full border border-black/10 bg-white/40 px-2 py-1 text-[10px] uppercase text-black/80 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
-                                {spec}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+              <div class="relative">
+                <div class="absolute left-2 top-0 h-full w-px bg-primary/20" />
+                <div class="space-y-6">
+                  {groupedProjects[year].map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel, appStoreLink, playStoreLink, status, specs, _dateLabel }) => {
+                    const techContent = (
+                      <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
+                        {usedTech.join(' · ')}
                       </div>
-                    </Fragment>
-                  </Content>
-                );
-              })}
+                    );
+
+                    const linksArray = [
+                      websiteLink && (
+                        <a href={websiteLink} target="_blank" class="no-underline text-inherit">
+                          Website
+                        </a>
+                      ),
+                      storeLink && (
+                        <a href={storeLink} target="_blank" class="no-underline text-inherit">
+                          {storeLabel || 'Store'}
+                        </a>
+                      ),
+                      appStoreLink && (
+                        <a href={appStoreLink} target="_blank" class="no-underline text-inherit">
+                          App Store
+                        </a>
+                      ),
+                      playStoreLink && (
+                        <a href={playStoreLink} target="_blank" class="no-underline text-inherit">
+                          Google Play
+                        </a>
+                      ),
+                      beLink && (
+                        <a href={beLink} target="_blank" class="no-underline text-inherit">
+                          Back-end Github
+                        </a>
+                      ),
+                      feLink && (
+                        <a href={feLink} target="_blank" class="no-underline text-inherit">
+                          Front-end Github
+                        </a>
+                      ),
+                      githubLink && !websiteLink && !beLink && !feLink && (
+                        <a href={githubLink} target="_blank" class="no-underline text-inherit">
+                          Github
+                        </a>
+                      ),
+                      !websiteLink && !githubLink && !beLink && !feLink && !storeLink && !appStoreLink && !playStoreLink && <span>No links available</span>,
+                    ].filter(Boolean);
+
+                    const linksContent = (
+                      <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
+                        {linksArray.map((item, index) => (
+                          <span>
+                            {item}
+                            {index < linksArray.length - 1 && ' · '}
+                          </span>
+                        ))}
+                      </div>
+                    );
+
+                    return (
+                      <div class="relative pl-8">
+                        <span class="absolute left-0 top-8 h-3 w-3 rounded-full bg-primary ring-4 ring-primary/20" />
+                        <Content
+                          items={[
+                            {
+                              icon: 'mdi:package-variant-closed',
+                              title: 'Description',
+                              description: description,
+                            },
+                            {
+                              icon: 'mdi:code-tags',
+                              title: 'Technologies',
+                              description: techContent,
+                            },
+                            {
+                              icon: 'mdi:external-link',
+                              title: 'Links',
+                              description: linksContent,
+                            },
+                          ]}
+                          classes={{
+                            container: 'p-6 md:p-6 lg:p-6 my-6 bg-blue-50 dark:bg-slate-800 rounded-md',
+                            gridContainer: 'gap-y-2 md:gap-y-2',
+                            panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
+                            title: 'text-black',
+                            description: 'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-semibold md:font-normal',
+                            icon: 'h-7 md:h-6 w-7 md:w-6 text-black dark:text-white',
+                          }}
+                        >
+                          <Fragment slot="content">
+                            <div class="flex flex-wrap items-center justify-between gap-3">
+                              <div class="flex flex-wrap items-center gap-2">
+                                {_dateLabel && (
+                                  <span class="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                                    {_dateLabel}
+                                  </span>
+                                )}
+                                <h3 class="text-2xl font-extrabold tracking-tight dark:text-white md:text-xl">{title}</h3>
+                                {status && (
+                                  <span class="rounded-full border border-black/10 bg-white/60 px-2 py-1 text-[10px] uppercase text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
+                                    {status}
+                                  </span>
+                                )}
+                              </div>
+                              {specs && specs.length > 0 && (
+                                <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-wide text-black dark:text-slate-300">
+                                  {specs.map((spec) => (
+                                    <span class="rounded-full border border-black/10 bg-white/40 px-2 py-1 text-[10px] uppercase text-black/80 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                                      {spec}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          </Fragment>
+                        </Content>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </section>
           ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>
         }
       </div>
     </div>
