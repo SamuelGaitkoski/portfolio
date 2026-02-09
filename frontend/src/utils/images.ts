@@ -60,7 +60,7 @@ export const adaptOpenGraphImages = async (
   const images = openGraph.images;
   const defaultWidth = 1200;
 
-type OptimizedImage = { src: string; width: number; height?: number };
+  type OptimizedImage = { src: string; width: number; height?: number };
 
   const defaultHeight = 626;
 
