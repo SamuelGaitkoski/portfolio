@@ -2,8 +2,14 @@
 import { Icon } from 'astro-icon/components';
 import { twMerge } from 'tailwind-merge';
 
+const variants = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  tertiary: 'btn btn-tertiary',
+  link: 'cursor-pointer hover:text-primary',
+};
 const {
-  variant = 'secondary',
+  variant = 'secondary' as keyof typeof variants,
   target,
   text = Astro.slots.render('default'),
   icon = '',
@@ -12,12 +18,8 @@ const {
   ...rest
 } = Astro.props;
 
-const variants = {
-  primary: 'btn-primary',
-  secondary: 'btn-secondary',
-  tertiary: 'btn btn-tertiary',
-  link: 'cursor-pointer hover:text-primary',
-};
+
+
 ---
 
 {
