@@ -16,7 +16,9 @@ export const readingTimeRemarkPlugin: RemarkPlugin = () => {
 
 export const responsiveTablesRehypePlugin: RehypePlugin = () => {
   return function (tree) {
-    if (!tree.children) return;
+    if (!tree.children) {
+      return;
+    }
 
     for (let i = 0; i < tree.children.length; i++) {
       const child = tree.children[i];
@@ -39,7 +41,9 @@ export const responsiveTablesRehypePlugin: RehypePlugin = () => {
 
 export const lazyImagesRehypePlugin: RehypePlugin = () => {
   return function (tree) {
-    if (!tree.children) return;
+    if (!tree.children) {
+      return;
+    }
 
     visit(tree, 'element', function (node) {
       if (node.tagName === 'img') {
