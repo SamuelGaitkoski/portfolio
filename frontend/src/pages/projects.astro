@@ -391,13 +391,13 @@ const yearOrder = Object.keys(groupedProjects)
             <section class="mb-12 md:mb-14">
               <div class="mb-6 flex flex-wrap items-center gap-4">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-primary">{year}</h2>
-                <div class="h-0.5 flex-1 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent" />
+                <div class="h-0.5 flex-1 bg-gradient-to-r from-primary via-primary/70 to-transparent" />
                 <span class="text-xs uppercase tracking-[0.2em] text-slate-400">
                   {groupedProjects[year].length} {groupedProjects[year].length === 1 ? 'project' : 'projects'}
                 </span>
               </div>
               <div class="relative z-0">
-                <div class="absolute left-2 top-2 bottom-2 w-0.5 bg-primary/60" />
+                <div class="absolute left-2 top-2 bottom-2 w-0.5 bg-primary/70" />
                 <div class="space-y-6">
                   {groupedProjects[year].map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel, appStoreLink, playStoreLink, status, specs, _dateLabel }) => {
                     const techContent = (
@@ -458,7 +458,7 @@ const yearOrder = Object.keys(groupedProjects)
 
                     return (
                       <div class="relative pl-8 z-10">
-                        <span class="absolute left-0 top-8 h-3.5 w-3.5 rounded-full bg-primary ring-4 ring-primary/40 shadow-[0_0_16px_rgba(96,115,255,0.45)]" />
+                        <span class="absolute left-0 top-8 h-3.5 w-3.5 rounded-full bg-primary ring-4 ring-primary/50 shadow-[0_0_16px_rgba(59,130,246,0.55)]" />
                         <Content
                           items={[
                             {
