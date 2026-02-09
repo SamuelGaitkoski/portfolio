@@ -8,20 +8,7 @@ const metadata = {
   title: "Samuel Almeida's Projects",
 };
 
-const monthNames = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-];
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const parseStartedAt = (value: string | undefined) => {
   if (!value) {
@@ -70,39 +57,27 @@ const projects = [
     websiteLink: 'https://textrefine.com',
     storeLink: 'https://chrome.google.com/webstore/detail/textrefine',
     storeLabel: 'Chrome Web Store',
-    usedTech: [
-      'TypeScript',
-      'Next.js',
-    ],
+    usedTech: ['TypeScript', 'Next.js'],
   },
   {
     title: 'Loop Reminder',
-    description:
-      'A lightweight Chrome extension for recurring reminders with simple scheduling and quick toggles.',
+    description: 'A lightweight Chrome extension for recurring reminders with simple scheduling and quick toggles.',
     startedAt: '2026-02',
     status: 'LIVE',
     specs: ['Chrome Extension'],
     storeLink: 'https://chrome.google.com/webstore/detail/loop-reminder',
     storeLabel: 'Chrome Web Store',
-    usedTech: [
-      'TypeScript',
-    ],
+    usedTech: ['TypeScript'],
   },
   {
     title: 'Bible Study Path',
-    description:
-      'A guided Bible study app with structured reading plans, notes, and progress tracking.',
+    description: 'A guided Bible study app with structured reading plans, notes, and progress tracking.',
     startedAt: '2026-02',
     status: 'STANDBY',
     specs: ['iOS', 'Android'],
     appStoreLink: 'https://apps.apple.com/app/id1234567890',
     playStoreLink: 'https://play.google.com/store/apps/details?id=com.biblestudypath',
-    usedTech: [
-      'React Native',
-      'TypeScript',
-      'Expo',
-      'Firebase',
-    ],
+    usedTech: ['React Native', 'TypeScript', 'Expo', 'Firebase'],
   },
   {
     title: 'ESSA E-COMMERCE',
@@ -112,13 +87,7 @@ const projects = [
     status: 'WIP',
     specs: ['SaaS'],
     websiteLink: 'https://www.essaecommerce.com',
-    usedTech: [
-      'C#',
-      '.NET 8',
-      'React',
-      'TypeScript',
-      'PostgreSQL',
-    ],
+    usedTech: ['C#', '.NET 8', 'React', 'TypeScript', 'PostgreSQL'],
   },
   {
     title: 'TS Toolkit',
@@ -128,10 +97,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['Library'],
     githubLink: 'https://github.com/SamuelGaitkoski/ts-toolkit',
-    usedTech: [
-      'TypeScript',
-      'Jest',
-    ],
+    usedTech: ['TypeScript', 'Jest'],
   },
   {
     title: 'Blog API',
@@ -157,9 +123,7 @@ const projects = [
     startedAt: '2025-08',
     status: 'COMPLETED',
     githubLink: 'https://github.com/SamuelGaitkoski/node-notes-cli',
-    usedTech: [
-      'Node.js',
-    ],
+    usedTech: ['Node.js'],
   },
   {
     title: 'Inventory API',
@@ -169,15 +133,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['API'],
     githubLink: 'https://github.com/SamuelGaitkoski/inventory-api',
-    usedTech: [
-      'Node.js',
-      'Express.js',
-      'TypeScript',
-      'TypeORM',
-      'PostgreSQL',
-      'Docker',
-      'JWT Authentication',
-    ],
+    usedTech: ['Node.js', 'Express.js', 'TypeScript', 'TypeORM', 'PostgreSQL', 'Docker', 'JWT Authentication'],
   },
   {
     title: 'Volunteering Platform',
@@ -187,15 +143,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/juliavdev/voluntariado',
-    usedTech: [
-      'Angular',
-      'Ionic',
-      'Node.js',
-      'Express.js',
-      'MySQL',
-      'Docker',
-      'JWT Authentication',
-    ],
+    usedTech: ['Angular', 'Ionic', 'Node.js', 'Express.js', 'MySQL', 'Docker', 'JWT Authentication'],
   },
   {
     title: 'Stock Manager API',
@@ -205,10 +153,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['API'],
     githubLink: 'https://github.com/SamuelGaitkoski/web-api-stock-manager',
-    usedTech: [
-      'C#',
-      '.NET Core 3.1',
-    ],
+    usedTech: ['C#', '.NET Core 3.1'],
   },
   {
     title: 'Products Manager',
@@ -219,13 +164,7 @@ const projects = [
     specs: ['Web App'],
     beLink: 'https://github.com/SamuelGaitkoski/api-products',
     feLink: 'https://github.com/SamuelGaitkoski/front-angular-products',
-    usedTech: [
-      'Angular',
-      '.NET 6',
-      'EF Core',
-      'SQL Server',
-      'JWT Authentication',
-    ],
+    usedTech: ['Angular', '.NET 6', 'EF Core', 'SQL Server', 'JWT Authentication'],
   },
   {
     title: 'Fleet Management API',
@@ -235,12 +174,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['API'],
     githubLink: 'https://github.com/SamuelGaitkoski/web-api-fleet-control',
-    usedTech: [
-      'C#',
-      '.NET Core 3.1',
-      'EF Core',
-      'SQL Server',
-    ],
+    usedTech: ['C#', '.NET Core 3.1', 'EF Core', 'SQL Server'],
   },
   {
     title: 'Task List',
@@ -250,11 +184,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/SamuelGaitkoski/react-task-list',
-    usedTech: [
-      'React',
-      'TypeScript',
-      'Styled Components',
-    ],
+    usedTech: ['React', 'TypeScript', 'Styled Components'],
   },
   {
     title: 'Rick and Morty Explorer UI',
@@ -264,11 +194,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/SamuelGaitkoski/react-rick-and-morty-api',
-    usedTech: [
-      'React',
-      'TypeScript',
-      'SCSS',
-    ],
+    usedTech: ['React', 'TypeScript', 'SCSS'],
   },
   {
     title: 'Twitter-Inspired UI',
@@ -276,10 +202,7 @@ const projects = [
     startedAt: '2023-02',
     status: 'COMPLETED',
     githubLink: 'https://github.com/SamuelGaitkoski/react-twitter-ui',
-    usedTech: [
-      'React',
-      'TypeScript',
-    ],
+    usedTech: ['React', 'TypeScript'],
   },
   {
     title: 'OLX-Inspired E-commerce',
@@ -288,12 +211,7 @@ const projects = [
     startedAt: '2022-10',
     status: 'COMPLETED',
     githubLink: 'https://github.com/SamuelGaitkoski/react-inspired-olx',
-    usedTech: [
-      'React',
-      'Styled Components',
-      'Redux',
-      'JWT Authentication',
-    ],
+    usedTech: ['React', 'Styled Components', 'Redux', 'JWT Authentication'],
   },
   {
     title: 'Album Viewer',
@@ -301,11 +219,7 @@ const projects = [
     startedAt: '2022-10',
     status: 'COMPLETED',
     githubLink: 'https://github.com/SamuelGaitkoski/react-album-jsonplaceholder-api',
-    usedTech: [
-      'React',
-      'TypeScript',
-      'Styled Components',
-    ],
+    usedTech: ['React', 'TypeScript', 'Styled Components'],
   },
   {
     title: 'DevMemory',
@@ -315,11 +229,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/SamuelGaitkoski/react-memory-game',
-    usedTech: [
-      'React',
-      'TypeScript',
-      'Styled Components',
-    ],
+    usedTech: ['React', 'TypeScript', 'Styled Components'],
   },
   {
     title: 'IMC Calculator',
@@ -329,11 +239,7 @@ const projects = [
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/SamuelGaitkoski/react-imc-calculator',
-    usedTech: [
-      'React',
-      'TypeScript',
-      'CSS Modules',
-    ],
+    usedTech: ['React', 'TypeScript', 'CSS Modules'],
   },
 ];
 
@@ -373,17 +279,21 @@ const yearOrder = Object.keys(groupedProjects)
   .concat(groupedProjects.Undated ? ['Undated'] : []);
 
 const statusOrder = ['LIVE', 'WIP', 'STANDBY', 'COMPLETED'];
-const statusCounts = statusOrder.reduce((acc, status) => {
-  acc[status] = projects.filter((project) => project.status === status).length;
-  return acc;
-}, {} as Record<string, number>);
+const statusCounts = statusOrder.reduce(
+  (acc, status) => {
+    acc[status] = projects.filter((project) => project.status === status).length;
+    return acc;
+  },
+  {} as Record<string, number>
+);
 const totalWithStatus = Object.values(statusCounts).reduce((sum, value) => sum + value, 0) || 1;
-const statusPercent = statusOrder.reduce((acc, status) => {
-  acc[status] = Math.round((statusCounts[status] / totalWithStatus) * 100);
-  return acc;
-}, {} as Record<string, number>);
-
-
+const statusPercent = statusOrder.reduce(
+  (acc, status) => {
+    acc[status] = Math.round((statusCounts[status] / totalWithStatus) * 100);
+    return acc;
+  },
+  {} as Record<string, number>
+);
 ---
 
 <Layout metadata={metadata}>
@@ -399,16 +309,18 @@ const statusPercent = statusOrder.reduce((acc, status) => {
         </section>
 
         <section class="mx-auto mb-10 mt-6 flex flex-wrap items-center justify-center gap-3">
-          {statusOrder.map((status) => (
-            <button
-              class="status-pill rounded-full border border-slate-300/60 bg-blue-50 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-primary hover:text-primary hover:bg-primary/10 dark:border-slate-600/50 dark:bg-slate-800/60 dark:text-slate-200/70"
-              data-status-filter={status}
-              type="button"
-            >
-              <span>{status}</span>
-              <span class="ml-2 text-primary/60">{statusPercent[status]}%</span>
-            </button>
-          ))}
+          {
+            statusOrder.map((status) => (
+              <button
+                class="status-pill rounded-full border border-slate-300/60 bg-blue-50 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-primary hover:text-primary hover:bg-primary/10 dark:border-slate-600/50 dark:bg-slate-800/60 dark:text-slate-200/70"
+                data-status-filter={status}
+                type="button"
+              >
+                <span>{status}</span>
+                <span class="ml-2 text-primary/60">{statusPercent[status]}%</span>
+              </button>
+            ))
+          }
           <button
             class="status-pill rounded-full border border-slate-300/60 bg-blue-50 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-primary hover:text-primary hover:bg-primary/10 dark:border-slate-600/50 dark:bg-slate-800/60 dark:text-slate-200/70"
             data-status-filter="ALL"
@@ -431,123 +343,149 @@ const statusPercent = statusOrder.reduce((acc, status) => {
               <div class="relative z-0">
                 <div class="absolute left-[5.5px] top-2 bottom-2 w-0.5 bg-slate-700/60" />
                 <div class="space-y-6">
-                  {groupedProjects[year].map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel, appStoreLink, playStoreLink, status, specs, _dateLabel }) => {
-                    const techContent = (
-                      <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                        {usedTech.join(' · ')}
-                      </div>
-                    );
+                  {groupedProjects[year].map(
+                    ({
+                      title,
+                      description,
+                      githubLink,
+                      websiteLink,
+                      beLink,
+                      feLink,
+                      usedTech,
+                      storeLink,
+                      storeLabel,
+                      appStoreLink,
+                      playStoreLink,
+                      status,
+                      specs,
+                      _dateLabel,
+                    }) => {
+                      const techContent = (
+                        <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
+                          {usedTech.join(' · ')}
+                        </div>
+                      );
 
-                    const linksArray = [
-                      websiteLink && (
-                        <a href={websiteLink} target="_blank" class="no-underline text-inherit">
-                          Website
-                        </a>
-                      ),
-                      storeLink && (
-                        <a href={storeLink} target="_blank" class="no-underline text-inherit">
-                          {storeLabel || 'Store'}
-                        </a>
-                      ),
-                      appStoreLink && (
-                        <a href={appStoreLink} target="_blank" class="no-underline text-inherit">
-                          App Store
-                        </a>
-                      ),
-                      playStoreLink && (
-                        <a href={playStoreLink} target="_blank" class="no-underline text-inherit">
-                          Google Play
-                        </a>
-                      ),
-                      beLink && (
-                        <a href={beLink} target="_blank" class="no-underline text-inherit">
-                          Back-end Github
-                        </a>
-                      ),
-                      feLink && (
-                        <a href={feLink} target="_blank" class="no-underline text-inherit">
-                          Front-end Github
-                        </a>
-                      ),
-                      githubLink && !websiteLink && !beLink && !feLink && (
-                        <a href={githubLink} target="_blank" class="no-underline text-inherit">
-                          Github
-                        </a>
-                      ),
-                      !websiteLink && !githubLink && !beLink && !feLink && !storeLink && !appStoreLink && !playStoreLink && <span>No links available</span>,
-                    ].filter(Boolean);
+                      const linksArray = [
+                        websiteLink && (
+                          <a href={websiteLink} target="_blank" class="no-underline text-inherit">
+                            Website
+                          </a>
+                        ),
+                        storeLink && (
+                          <a href={storeLink} target="_blank" class="no-underline text-inherit">
+                            {storeLabel || 'Store'}
+                          </a>
+                        ),
+                        appStoreLink && (
+                          <a href={appStoreLink} target="_blank" class="no-underline text-inherit">
+                            App Store
+                          </a>
+                        ),
+                        playStoreLink && (
+                          <a href={playStoreLink} target="_blank" class="no-underline text-inherit">
+                            Google Play
+                          </a>
+                        ),
+                        beLink && (
+                          <a href={beLink} target="_blank" class="no-underline text-inherit">
+                            Back-end Github
+                          </a>
+                        ),
+                        feLink && (
+                          <a href={feLink} target="_blank" class="no-underline text-inherit">
+                            Front-end Github
+                          </a>
+                        ),
+                        githubLink && !websiteLink && !beLink && !feLink && (
+                          <a href={githubLink} target="_blank" class="no-underline text-inherit">
+                            Github
+                          </a>
+                        ),
+                        !websiteLink &&
+                          !githubLink &&
+                          !beLink &&
+                          !feLink &&
+                          !storeLink &&
+                          !appStoreLink &&
+                          !playStoreLink && <span>No links available</span>,
+                      ].filter(Boolean);
 
-                    const linksContent = (
-                      <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                        {linksArray.map((item, index) => (
-                          <span>
-                            {item}
-                            {index < linksArray.length - 1 && ' · '}
-                          </span>
-                        ))}
-                      </div>
-                    );
+                      const linksContent = (
+                        <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
+                          {linksArray.map((item, index) => (
+                            <span>
+                              {item}
+                              {index < linksArray.length - 1 && ' · '}
+                            </span>
+                          ))}
+                        </div>
+                      );
 
-                    return (
-                      <div class="relative pl-8 z-10">
-                        <span class="absolute left-0 top-[50px] h-2.5 w-2.5 rounded-full bg-primary ring-3 ring-primary/50 shadow-[0_0_16px_rgba(59,130,246,0.55)]" />
-                        <Content
-                          items={[
-                            {
-                              icon: 'mdi:package-variant-closed',
-                              title: 'Description',
-                              description: description,
-                            },
-                            {
-                              icon: 'mdi:code-tags',
-                              title: 'Technologies',
-                              description: techContent,
-                            },
-                            {
-                              icon: 'mdi:external-link',
-                              title: 'Links',
-                              description: linksContent,
-                            },
-                          ]}
-                          classes={{
-                            container: 'p-6 md:p-6 lg:p-6 my-6 bg-blue-50 dark:bg-slate-800 rounded-md',
-                            gridContainer: 'gap-y-2 md:gap-y-2',
-                            panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
-                            title: 'text-black',
-                            description: 'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-semibold md:font-normal',
-                            icon: 'h-7 md:h-6 w-7 md:w-6 text-black dark:text-white',
-                          }}
-                        >
-                          <Fragment slot="content">
-                            <div class="flex flex-wrap items-center justify-between gap-3">
-                              <div class="flex flex-wrap items-center gap-2">
-                                {_dateLabel && (
-                                  <span class="text-[11px] uppercase tracking-[0.2em] text-primary">
-                                    {_dateLabel}
-                                  </span>
-                                )}
-                                <h3 class="text-2xl font-extrabold tracking-tight dark:text-white md:text-xl">{title}</h3>
-                                {status && (
-                                  <span class="rounded-full border border-black/10 bg-white/60 px-2 py-1 text-[10px] uppercase text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
-                                    {status}
-                                  </span>
+                      return (
+                        <div class="relative pl-8 z-10">
+                          <span class="absolute left-0 top-[50px] h-2.5 w-2.5 rounded-full bg-primary ring-3 ring-primary/50 shadow-[0_0_16px_rgba(59,130,246,0.55)]" />
+                          <Content
+                            items={[
+                              {
+                                icon: 'mdi:package-variant-closed',
+                                title: 'Description',
+                                description: description,
+                              },
+                              {
+                                icon: 'mdi:code-tags',
+                                title: 'Technologies',
+                                description: techContent,
+                              },
+                              {
+                                icon: 'mdi:external-link',
+                                title: 'Links',
+                                description: linksContent,
+                              },
+                            ]}
+                            classes={{
+                              container: 'p-6 md:p-6 lg:p-6 my-6 bg-blue-50 dark:bg-slate-800 rounded-md',
+                              gridContainer: 'gap-y-2 md:gap-y-2',
+                              panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
+                              title: 'text-black',
+                              description:
+                                'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-semibold md:font-normal',
+                              icon: 'h-7 md:h-6 w-7 md:w-6 text-black dark:text-white',
+                            }}
+                          >
+                            <Fragment slot="content">
+                              <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex flex-wrap items-center gap-2">
+                                  {_dateLabel && (
+                                    <span class="text-[11px] uppercase tracking-[0.2em] text-primary">
+                                      {_dateLabel}
+                                    </span>
+                                  )}
+                                  <h3 class="text-2xl font-extrabold tracking-tight dark:text-white md:text-xl">
+                                    {title}
+                                  </h3>
+                                  {status && (
+                                    <span class="rounded-full border border-black/10 bg-white/60 px-2 py-1 text-[10px] uppercase text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
+                                      {status}
+                                    </span>
+                                  )}
+                                </div>
+                                {specs && specs.length > 0 && (
+                                  <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-wide text-black dark:text-slate-300">
+                                    {specs.map((spec) => (
+                                      <span class="rounded-full border border-black/10 bg-white/40 px-2 py-1 text-[10px] uppercase text-black/80 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                                        {spec}
+                                      </span>
+                                    ))}
+                                  </div>
                                 )}
                               </div>
-                              {specs && specs.length > 0 && (
-                                <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-wide text-black dark:text-slate-300">
-                                  {specs.map((spec) => (
-                                    <span class="rounded-full border border-black/10 bg-white/40 px-2 py-1 text-[10px] uppercase text-black/80 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
-                                      {spec}
-                                    </span>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          </Fragment>
-                        </Content>
-                      </div>
-                    );
-                  })}
+                            </Fragment>
+                          </Content>
+                        </div>
+                      );
+                    }
+                  )}
                 </div>
               </div>
             </section>
