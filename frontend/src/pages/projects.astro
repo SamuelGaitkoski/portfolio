@@ -347,11 +347,11 @@ const statusPercent = statusOrder.reduce(
 
         {
           yearOrder.map((year) => (
-            <section class="mb-12 md:mb-14">
+            <section class="mb-12 md:mb-14" data-year-section data-year-total={groupedProjects[year].length}>
               <div class="mb-6 flex flex-wrap items-center gap-4">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-primary">{year}</h2>
                 <div class="h-0.5 flex-1 bg-gradient-to-r from-primary via-primary/70 to-transparent" />
-                <span class="text-xs uppercase tracking-[0.2em] text-slate-400">
+                <span class="text-xs uppercase tracking-[0.2em] text-slate-400" data-year-count>
                   {groupedProjects[year].length} {groupedProjects[year].length === 1 ? 'project' : 'projects'}
                 </span>
               </div>
@@ -438,7 +438,7 @@ const statusPercent = statusOrder.reduce(
                       );
 
                       return (
-                        <div class="relative pl-8 z-10">
+                        <div class="relative pl-8 z-10" data-project-card data-project-status={status || COMPLETED}>
                           <span class="absolute left-0 top-[50px] h-2.5 w-2.5 rounded-full bg-primary ring-3 ring-primary/50 shadow-[0_0_16px_rgba(59,130,246,0.55)]" />
                           <Content
                             items={[
@@ -509,4 +509,67 @@ const statusPercent = statusOrder.reduce(
       </div>
     </div>
   </main>
+
+  <style>
+    .status-pill.is-active {
+      border-color: rgba(59, 130, 246, 0.7);
+      background: rgba(59, 130, 246, 0.12);
+      color: rgba(59, 130, 246, 1);
+      box-shadow:
+        0 0 0 1px rgba(59, 130, 246, 0.25),
+        0 8px 18px rgba(59, 130, 246, 0.18);
+    }
+
+    .status-pill:hover {
+      filter: brightness(1.08);
+    }
+  </style>
+
+  <script is:inline>
+    const statusPills = Array.from(document.querySelectorAll('.status-pill'));
+    const projectCards = Array.from(document.querySelectorAll('[data-project-card]'));
+    const yearSections = Array.from(document.querySelectorAll('[data-year-section]'));
+
+    const formatCountLabel = (count) => `${count} ${count === 1 ? 'project' : 'projects'}`;
+
+    const updateYearSection = (section, activeStatus) => {
+      const cards = Array.from(section.querySelectorAll('[data-project-card]'));
+      const countEl = section.querySelector('[data-year-count]');
+      const total = Number(section.dataset.yearTotal || cards.length);
+      const visible = cards.filter((card) => card.style.display !== 'none');
+      const visibleCount = visible.length;
+
+      if (countEl) {
+        countEl.textContent = formatCountLabel(activeStatus === 'ALL' ? total : visibleCount);
+      }
+
+      section.style.display = visibleCount > 0 ? '' : 'none';
+    };
+
+    const applyFilter = (activeStatus) => {
+      projectCards.forEach((card) => {
+        const status = card.dataset.projectStatus || 'COMPLETED';
+        const show = activeStatus === 'ALL' || status === activeStatus;
+        card.style.display = show ? '' : 'none';
+      });
+
+      yearSections.forEach((section) => updateYearSection(section, activeStatus));
+    };
+
+    const setActive = (activeStatus) => {
+      statusPills.forEach((pill) => {
+        pill.classList.toggle('is-active', pill.dataset.statusFilter === activeStatus);
+      });
+      applyFilter(activeStatus);
+    };
+
+    statusPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const nextStatus = pill.dataset.statusFilter || 'ALL';
+        setActive(nextStatus);
+      });
+    });
+
+    setActive('ALL');
+  </script>
 </Layout>
