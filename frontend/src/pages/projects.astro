@@ -10,6 +10,48 @@ const metadata = {
 
 const projects = [
   {
+    title: 'TextRefine',
+    description:
+      'A multilingual writing assistant Chrome extension that corrects grammar, suggests refinements, and provides full-sentence rewrites across multiple languages.',
+    websiteLink: 'https://textrefine.app',
+    storeLink: 'https://chrome.google.com/webstore/detail/textrefine',
+    storeLabel: 'Chrome Web Store',
+    usedTech: [
+      'TypeScript',
+      'Next.js',
+      'Chrome Extension APIs',
+      'OpenAI API',
+      'Stripe',
+    ],
+  },
+  {
+    title: 'Loop Reminder',
+    description:
+      'A lightweight Chrome extension for recurring reminders with simple scheduling and quick toggles.',
+    websiteLink: 'https://loopreminder.app',
+    storeLink: 'https://chrome.google.com/webstore/detail/loop-reminder',
+    storeLabel: 'Chrome Web Store',
+    usedTech: [
+      'TypeScript',
+      'Chrome Extension APIs',
+      'HTML',
+      'CSS',
+    ],
+  },
+  {
+    title: 'Bible Study Path',
+    description:
+      'A guided Bible study app with structured reading plans, notes, and progress tracking.',
+    websiteLink: 'https://biblestudypath.app',
+    storeLink: 'https://apps.apple.com/app/id1234567890',
+    storeLabel: 'App Store',
+    usedTech: [
+      'React',
+      'TypeScript',
+      'Node.js',
+    ],
+  },
+  {
     title: 'ESSA E-COMMERCE',
     description:
       'A scalable e-commerce platform built for multiple businesses, covering catalog management, order flow, billing, and integrations for shipping, invoicing, and payments.',
@@ -149,7 +191,7 @@ const projects = [
         </section>
 
         {
-          projects.map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech }) => {
+          projects.map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel }) => {
             const techContent = (
               <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
                 {usedTech.join(' · ')}
@@ -160,6 +202,11 @@ const projects = [
               websiteLink && (
                 <a href={websiteLink} target="_blank" class="no-underline text-inherit">
                   Website
+                </a>
+              ),
+              storeLink && (
+                <a href={storeLink} target="_blank" class="no-underline text-inherit">
+                  {storeLabel || 'Store'}
                 </a>
               ),
               beLink && (
