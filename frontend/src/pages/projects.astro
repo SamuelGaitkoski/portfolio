@@ -372,6 +372,18 @@ const yearOrder = Object.keys(groupedProjects)
   .map(String)
   .concat(groupedProjects.Undated ? ['Undated'] : []);
 
+const statusOrder = ['LIVE', 'WIP', 'STANDBY', 'COMPLETED'];
+const statusCounts = statusOrder.reduce((acc, status) => {
+  acc[status] = projects.filter((project) => project.status === status).length;
+  return acc;
+}, {} as Record<string, number>);
+const totalWithStatus = Object.values(statusCounts).reduce((sum, value) => sum + value, 0) || 1;
+const statusPercent = statusOrder.reduce((acc, status) => {
+  acc[status] = Math.round((statusCounts[status] / totalWithStatus) * 100);
+  return acc;
+}, {} as Record<string, number>);
+
+
 ---
 
 <Layout metadata={metadata}>
@@ -384,6 +396,26 @@ const yearOrder = Object.keys(groupedProjects)
               {title}
             </h1>
           </header>
+        </section>
+
+        <section class="mx-auto mb-10 mt-6 flex flex-wrap items-center justify-center gap-3">
+          {statusOrder.map((status) => (
+            <button
+              class="status-pill rounded-full border border-primary/40 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary/80 transition hover:border-primary hover:text-primary"
+              data-status-filter={status}
+              type="button"
+            >
+              <span>{status}</span>
+              <span class="ml-2 text-primary/60">{statusPercent[status]}%</span>
+            </button>
+          ))}
+          <button
+            class="status-pill rounded-full border border-primary/30 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary/60 transition hover:border-primary hover:text-primary"
+            data-status-filter="ALL"
+            type="button"
+          >
+            <span>ALL</span>
+          </button>
         </section>
 
         {
