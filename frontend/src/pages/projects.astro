@@ -24,15 +24,21 @@ const monthNames = [
 ];
 
 const parseStartedAt = (value: string | undefined) => {
-  if (!value) return null;
+  if (!value) {
+    return null;
+  }
   const [year, month] = value.split('-');
-  if (!year || !month) return null;
+  if (!year || !month) {
+    return null;
+  }
   return new Date(Date.UTC(Number(year), Number(month) - 1, 1));
 };
 
 const formatStartedAt = (value: string | undefined) => {
   const date = parseStartedAt(value);
-  if (!date) return null;
+  if (!date) {
+    return null;
+  }
   return `${monthNames[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
 };
 
@@ -337,15 +343,23 @@ const projectsSorted: (Project & { _date: Date | null; _dateLabel: string | null
     _dateLabel: formatStartedAt(project.startedAt),
   }))
   .sort((a, b) => {
-    if (a._date && b._date) return b._date.getTime() - a._date.getTime();
-    if (a._date) return -1;
-    if (b._date) return 1;
+    if (a._date && b._date) {
+      return b._date.getTime() - a._date.getTime();
+    }
+    if (a._date) {
+      return -1;
+    }
+    if (b._date) {
+      return 1;
+    }
     return a.title.localeCompare(b.title);
   });
 
 const groupedProjects = projectsSorted.reduce<Record<string, typeof projectsSorted>>((acc, project) => {
   const year = project._date ? String(project._date.getUTCFullYear()) : 'Undated';
-  if (!acc[year]) acc[year] = [];
+  if (!acc[year]) {
+    acc[year] = [];
+  }
   acc[year].push(project);
   return acc;
 }, {});
