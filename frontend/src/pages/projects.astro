@@ -36,6 +36,23 @@ const formatStartedAt = (value: string | undefined) => {
   return `${monthNames[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
 };
 
+type Project = {
+  title: string;
+  description: string;
+  startedAt?: string;
+  status?: string;
+  specs?: string[];
+  websiteLink?: string;
+  storeLink?: string;
+  storeLabel?: string;
+  appStoreLink?: string;
+  playStoreLink?: string;
+  githubLink?: string;
+  beLink?: string;
+  feLink?: string;
+  usedTech: string[];
+};
+
 const projects = [
   {
     title: 'TextRefine',
@@ -313,8 +330,8 @@ const projects = [
   },
 ];
 
-const projectsSorted = [...projects]
-  .map((project) => ({
+const projectsSorted: (Project & { _date: Date | null; _dateLabel: string | null })[] = [...projects]
+  .map((project: Project) => ({
     ...project,
     _date: parseStartedAt(project.startedAt),
     _dateLabel: formatStartedAt(project.startedAt),
@@ -326,8 +343,8 @@ const projectsSorted = [...projects]
     return a.title.localeCompare(b.title);
   });
 
-const groupedProjects = projectsSorted.reduce((acc, project) => {
-  const year = project._date ? project._date.getUTCFullYear() : 'Undated';
+const groupedProjects = projectsSorted.reduce<Record<string, typeof projectsSorted>>((acc, project) => {
+  const year = project._date ? String(project._date.getUTCFullYear()) : 'Undated';
   if (!acc[year]) acc[year] = [];
   acc[year].push(project);
   return acc;
