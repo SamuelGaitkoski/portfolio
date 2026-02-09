@@ -249,13 +249,14 @@ const projectsSorted: (Project & {
   _dateLabel: string | null;
   _index: number;
   _startedOrder: number | null;
-})[] = [...projects].map((project: Project, index: number) => ({
-  ...project,
-  _date: parseStartedAt(project.startedAt),
-  _dateLabel: formatStartedAt(project.startedAt),
-  _index: index,
-  _startedOrder: project.startedOrder ?? null,
-}))
+})[] = [...projects]
+  .map((project: Project, index: number) => ({
+    ...project,
+    _date: parseStartedAt(project.startedAt),
+    _dateLabel: formatStartedAt(project.startedAt),
+    _index: index,
+    _startedOrder: project.startedOrder ?? null,
+  }))
   .sort((a, b) => {
     if (a._date && b._date) {
       const dateDelta = b._date.getTime() - a._date.getTime();
