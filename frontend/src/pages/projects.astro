@@ -33,6 +33,7 @@ type Project = {
   title: string;
   description: string;
   startedAt?: string;
+  startedOrder?: number;
   status?: string;
   specs?: string[];
   websiteLink?: string;
@@ -243,15 +244,28 @@ const projects = [
   },
 ];
 
-const projectsSorted: (Project & { _date: Date | null; _dateLabel: string | null })[] = [...projects]
-  .map((project: Project) => ({
-    ...project,
-    _date: parseStartedAt(project.startedAt),
-    _dateLabel: formatStartedAt(project.startedAt),
-  }))
+const projectsSorted: (Project & {
+  _date: Date | null;
+  _dateLabel: string | null;
+  _index: number;
+  _startedOrder: number | null;
+})[] = [...projects].map((project: Project, index: number) => ({
+  ...project,
+  _date: parseStartedAt(project.startedAt),
+  _dateLabel: formatStartedAt(project.startedAt),
+  _index: index,
+  _startedOrder: project.startedOrder ?? null,
+}))
   .sort((a, b) => {
     if (a._date && b._date) {
-      return b._date.getTime() - a._date.getTime();
+      const dateDelta = b._date.getTime() - a._date.getTime();
+      if (dateDelta != 0) {
+        return dateDelta;
+      }
+      if (a._startedOrder != null && b._startedOrder != null) {
+        return b._startedOrder - a._startedOrder;
+      }
+      return a._index - b._index;
     }
     if (a._date) {
       return -1;
