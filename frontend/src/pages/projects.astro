@@ -8,11 +8,40 @@ const metadata = {
   title: "Samuel Almeida's Projects",
 };
 
+const monthNames = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
+const parseStartedAt = (value) => {
+  if (!value) return null;
+  const [year, month] = value.split('-');
+  if (!year || !month) return null;
+  return new Date(Date.UTC(Number(year), Number(month) - 1, 1));
+};
+
+const formatStartedAt = (value) => {
+  const date = parseStartedAt(value);
+  if (!date) return null;
+  return `${monthNames[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
+};
+
 const projects = [
   {
     title: 'TextRefine',
     description:
       'A multilingual writing assistant Chrome extension that corrects grammar, suggests refinements, and provides full-sentence rewrites across multiple languages.',
+    startedAt: '2026-02',
     status: 'WIP',
     specs: ['Chrome Extension', 'SaaS'],
     websiteLink: 'https://textrefine.com',
@@ -27,6 +56,7 @@ const projects = [
     title: 'Loop Reminder',
     description:
       'A lightweight Chrome extension for recurring reminders with simple scheduling and quick toggles.',
+    startedAt: '2026-02',
     status: 'LIVE',
     specs: ['Chrome Extension'],
     storeLink: 'https://chrome.google.com/webstore/detail/loop-reminder',
@@ -39,6 +69,7 @@ const projects = [
     title: 'Bible Study Path',
     description:
       'A guided Bible study app with structured reading plans, notes, and progress tracking.',
+    startedAt: '2026-02',
     status: 'STANDBY',
     specs: ['iOS', 'Android'],
     appStoreLink: 'https://apps.apple.com/app/id1234567890',
@@ -53,6 +84,7 @@ const projects = [
     title: 'ESSA E-COMMERCE',
     description:
       'A scalable e-commerce platform built for multiple businesses, covering catalog management, order flow, billing, and integrations for shipping, invoicing, and payments.',
+    startedAt: '2025-06',
     status: 'WIP',
     specs: ['SaaS'],
     websiteLink: 'https://www.essaecommerce.com',
@@ -68,6 +100,7 @@ const projects = [
     title: 'TS Toolkit',
     description:
       'A TypeScript-first utility library showcasing advanced TypeScript features like generics, type guards, conditional types, mapped types, and more. Includes array, object, and string helper functions with strong typing and unit tests.',
+    startedAt: '2025-08',
     status: 'COMPLETED',
     specs: ['Library'],
     githubLink: 'https://github.com/SamuelGaitkoski/ts-toolkit',
@@ -80,6 +113,7 @@ const projects = [
     title: 'Blog API',
     description:
       'A RESTful API for managing blog posts with role-based access. Admins can see all posts, users can view and manage only their own.',
+    startedAt: '2025-08',
     status: 'COMPLETED',
     specs: ['API'],
     githubLink: 'https://github.com/SamuelGaitkoski/express-blog-api',
@@ -96,6 +130,7 @@ const projects = [
   {
     title: 'Notes CLI',
     description: 'A command-line tool to manage notes (add, list, remove) using only Node.js core modules.',
+    startedAt: '2025-08',
     status: 'COMPLETED',
     githubLink: 'https://github.com/SamuelGaitkoski/node-notes-cli',
     usedTech: [
@@ -106,6 +141,7 @@ const projects = [
     title: 'Inventory API',
     description:
       'An Inventory API with role-based access, allowing admins to manage products and categories while users can browse them. Includes secure user authentication and a clear separation of privileges.',
+    startedAt: '2025-08',
     status: 'COMPLETED',
     specs: ['API'],
     githubLink: 'https://github.com/SamuelGaitkoski/inventory-api',
@@ -123,6 +159,7 @@ const projects = [
     title: 'Volunteering Platform',
     description:
       'Contributed to the development of a volunteering platform where users can register, log in, and sign up for events organized by entities. Entities can create, update, and delete events, while users can view available opportunities and apply until the event reaches the specified number of volunteers.',
+    startedAt: '2025-03',
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/juliavdev/voluntariado',
@@ -140,6 +177,7 @@ const projects = [
     title: 'Stock Manager API',
     description:
       'A Stock Management WEB API to create, update, delete, and retrieve products, including individual product details.',
+    startedAt: '2024-11',
     status: 'COMPLETED',
     specs: ['API'],
     githubLink: 'https://github.com/SamuelGaitkoski/web-api-stock-manager',
@@ -152,6 +190,7 @@ const projects = [
     title: 'Products Manager',
     description:
       'A full-stack application where users can sign up, log in, and manage products with categories, prices, and CRUD operations.',
+    startedAt: '2023-07',
     status: 'COMPLETED',
     specs: ['Web App'],
     beLink: 'https://github.com/SamuelGaitkoski/api-products',
@@ -168,6 +207,7 @@ const projects = [
     title: 'Fleet Management API',
     description:
       'A Fleet Management WEB API to create, update, delete, list, and retrieve vehicles and their associated drivers, enabling companies to efficiently manage their fleet.',
+    startedAt: '2023-07',
     status: 'COMPLETED',
     specs: ['API'],
     githubLink: 'https://github.com/SamuelGaitkoski/web-api-fleet-control',
@@ -182,6 +222,7 @@ const projects = [
     title: 'Task List',
     description:
       'A simple and interactive task management application that allows users to add, edit, and delete tasks. It helps keep track of daily to-dos in a clean and user-friendly interface. Each task can be marked as completed, making it easy to manage priorities and stay organized.',
+    startedAt: '2023-03',
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/SamuelGaitkoski/react-task-list',
@@ -195,6 +236,7 @@ const projects = [
     title: 'Rick and Morty Explorer UI',
     description:
       'A UI that consumes the Rick and Morty API. Features include light/dark theme switching, character search, and pages for API documentation and additional info about the API.',
+    startedAt: '2023-01',
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/SamuelGaitkoski/react-rick-and-morty-api',
@@ -207,6 +249,7 @@ const projects = [
   {
     title: 'Twitter-Inspired UI',
     description: 'A Twitter-inspired UI where you can post tweets and view your own timeline.',
+    startedAt: '2023-02',
     status: 'COMPLETED',
     githubLink: 'https://github.com/SamuelGaitkoski/react-twitter-ui',
     usedTech: [
@@ -218,6 +261,7 @@ const projects = [
     title: 'OLX-Inspired E-commerce',
     description:
       "An OLX-inspired e-commerce platform where users can sign up, log in, manage their profile, browse ads and categories, and create or edit their own ads. The project consumes an API provided by the course's instructor.",
+    startedAt: '2022-10',
     status: 'COMPLETED',
     githubLink: 'https://github.com/SamuelGaitkoski/react-inspired-olx',
     usedTech: [
@@ -230,6 +274,7 @@ const projects = [
   {
     title: 'Album Viewer',
     description: 'Browse albums and explore their photos using data from the JSON Placeholder API.',
+    startedAt: '2022-10',
     status: 'COMPLETED',
     githubLink: 'https://github.com/SamuelGaitkoski/react-album-jsonplaceholder-api',
     usedTech: [
@@ -242,6 +287,7 @@ const projects = [
     title: 'DevMemory',
     description:
       'DevMemory is a memory matching game where players must find pairs of identical images. The game tracks the time taken to complete the game and counts the number of moves made, adding an extra layer of challenge and competition.',
+    startedAt: '2022-09',
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/SamuelGaitkoski/react-memory-game',
@@ -255,6 +301,7 @@ const projects = [
     title: 'IMC Calculator',
     description:
       'Calculate your BMI (Body Mass Index), a standard adopted by the World Health Organization to estimate the ideal weight for each person. The calculator determines your BMI based on the height and weight you enter and gives a visual indication of your result.',
+    startedAt: '2022-09',
     status: 'COMPLETED',
     specs: ['Web App'],
     githubLink: 'https://github.com/SamuelGaitkoski/react-imc-calculator',
@@ -265,6 +312,34 @@ const projects = [
     ],
   },
 ];
+
+const projectsSorted = [...projects]
+  .map((project) => ({
+    ...project,
+    _date: parseStartedAt(project.startedAt),
+    _dateLabel: formatStartedAt(project.startedAt),
+  }))
+  .sort((a, b) => {
+    if (a._date && b._date) return b._date.getTime() - a._date.getTime();
+    if (a._date) return -1;
+    if (b._date) return 1;
+    return a.title.localeCompare(b.title);
+  });
+
+const groupedProjects = projectsSorted.reduce((acc, project) => {
+  const year = project._date ? project._date.getUTCFullYear() : 'Undated';
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(project);
+  return acc;
+}, {});
+
+const yearOrder = Object.keys(groupedProjects)
+  .filter((year) => year !== 'Undated')
+  .map((year) => Number(year))
+  .sort((a, b) => b - a)
+  .map(String)
+  .concat(groupedProjects.Undated ? ['Undated'] : []);
+
 ---
 
 <Layout metadata={metadata}>
@@ -280,115 +355,130 @@ const projects = [
         </section>
 
         {
-          projects.map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel, appStoreLink, playStoreLink, status, specs }) => {
-            const techContent = (
-              <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                {usedTech.join(' · ')}
+          yearOrder.map((year) => (
+            <section class="mb-10 md:mb-12">
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-orange-500">{year}</h2>
+                <span class="text-xs uppercase tracking-[0.2em] text-slate-400">
+                  {groupedProjects[year].length} projects
+                </span>
               </div>
-            );
-
-            const linksArray = [
-              websiteLink && (
-                <a href={websiteLink} target="_blank" class="no-underline text-inherit">
-                  Website
-                </a>
-              ),
-              storeLink && (
-                <a href={storeLink} target="_blank" class="no-underline text-inherit">
-                  {storeLabel || 'Store'}
-                </a>
-              ),
-              appStoreLink && (
-                <a href={appStoreLink} target="_blank" class="no-underline text-inherit">
-                  App Store
-                </a>
-              ),
-              playStoreLink && (
-                <a href={playStoreLink} target="_blank" class="no-underline text-inherit">
-                  Google Play
-                </a>
-              ),
-              beLink && (
-                <a href={beLink} target="_blank" class="no-underline text-inherit">
-                  Back-end Github
-                </a>
-              ),
-              feLink && (
-                <a href={feLink} target="_blank" class="no-underline text-inherit">
-                  Front-end Github
-                </a>
-              ),
-              githubLink && !websiteLink && !beLink && !feLink && (
-                <a href={githubLink} target="_blank" class="no-underline text-inherit">
-                  Github
-                </a>
-              ),
-              !websiteLink && !githubLink && !beLink && !feLink && !storeLink && !appStoreLink && !playStoreLink && <span>No links available</span>,
-            ].filter(Boolean);
-
-            const linksContent = (
-              <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                {linksArray.map((item, index) => (
-                  <span>
-                    {item}
-                    {index < linksArray.length - 1 && ' · '}
-                  </span>
-                ))}
-              </div>
-            );
-
-            return (
-              <Content
-                items={[
-                  {
-                    icon: 'mdi:package-variant-closed',
-                    title: 'Description',
-                    description: description,
-                  },
-                  {
-                    icon: 'mdi:code-tags',
-                    title: 'Technologies',
-                    description: techContent,
-                  },
-                  {
-                    icon: 'mdi:external-link',
-                    title: 'Links',
-                    description: linksContent,
-                  },
-                ]}
-                classes={{
-                  container: 'p-6 md:p-6 lg:p-6 my-6 bg-blue-50 dark:bg-slate-800 rounded-md',
-                  gridContainer: 'gap-y-2 md:gap-y-2',
-                  panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
-                  title: 'text-black',
-                  description: 'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-semibold md:font-normal',
-                  icon: 'h-7 md:h-6 w-7 md:w-6 text-black dark:text-white',
-                }}
-              >
-                <Fragment slot="content">
-                  <div class="flex flex-wrap items-center justify-between gap-3">
-                    <div class="flex items-center gap-2">
-                      <h3 class="text-2xl font-extrabold tracking-tight dark:text-white md:text-xl">{title}</h3>
-                      {status && (
-                        <span class="rounded-full border border-black/10 bg-white/60 px-2 py-1 text-[10px] uppercase text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
-                          {status}
-                        </span>
-                      )}
-                    </div>
-                    {specs && specs.length > 0 && (
-                      <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-wide text-black dark:text-slate-300">
-                        {specs.map((spec) => (
-                          <span class="rounded-full border border-black/10 bg-white/40 px-2 py-1 text-[10px] uppercase text-black/80 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
-                            {spec}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+              {groupedProjects[year].map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel, appStoreLink, playStoreLink, status, specs, _dateLabel }) => {
+                const techContent = (
+                  <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
+                    {usedTech.join(' · ')}
                   </div>
-                </Fragment>
-              </Content>
-            );
-          })
+                );
+
+                const linksArray = [
+                  websiteLink && (
+                    <a href={websiteLink} target="_blank" class="no-underline text-inherit">
+                      Website
+                    </a>
+                  ),
+                  storeLink && (
+                    <a href={storeLink} target="_blank" class="no-underline text-inherit">
+                      {storeLabel || 'Store'}
+                    </a>
+                  ),
+                  appStoreLink && (
+                    <a href={appStoreLink} target="_blank" class="no-underline text-inherit">
+                      App Store
+                    </a>
+                  ),
+                  playStoreLink && (
+                    <a href={playStoreLink} target="_blank" class="no-underline text-inherit">
+                      Google Play
+                    </a>
+                  ),
+                  beLink && (
+                    <a href={beLink} target="_blank" class="no-underline text-inherit">
+                      Back-end Github
+                    </a>
+                  ),
+                  feLink && (
+                    <a href={feLink} target="_blank" class="no-underline text-inherit">
+                      Front-end Github
+                    </a>
+                  ),
+                  githubLink && !websiteLink && !beLink && !feLink && (
+                    <a href={githubLink} target="_blank" class="no-underline text-inherit">
+                      Github
+                    </a>
+                  ),
+                  !websiteLink && !githubLink && !beLink && !feLink && !storeLink && !appStoreLink && !playStoreLink && <span>No links available</span>,
+                ].filter(Boolean);
+
+                const linksContent = (
+                  <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
+                    {linksArray.map((item, index) => (
+                      <span>
+                        {item}
+                        {index < linksArray.length - 1 && ' · '}
+                      </span>
+                    ))}
+                  </div>
+                );
+
+                return (
+                  <Content
+                    items={[
+                      {
+                        icon: 'mdi:package-variant-closed',
+                        title: 'Description',
+                        description: description,
+                      },
+                      {
+                        icon: 'mdi:code-tags',
+                        title: 'Technologies',
+                        description: techContent,
+                      },
+                      {
+                        icon: 'mdi:external-link',
+                        title: 'Links',
+                        description: linksContent,
+                      },
+                    ]}
+                    classes={{
+                      container: 'p-6 md:p-6 lg:p-6 my-6 bg-blue-50 dark:bg-slate-800 rounded-md',
+                      gridContainer: 'gap-y-2 md:gap-y-2',
+                      panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
+                      title: 'text-black',
+                      description: 'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-semibold md:font-normal',
+                      icon: 'h-7 md:h-6 w-7 md:w-6 text-black dark:text-white',
+                    }}
+                  >
+                    <Fragment slot="content">
+                      <div class="flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex flex-wrap items-center gap-2">
+                          {_dateLabel && (
+                            <span class="text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                              {_dateLabel}
+                            </span>
+                          )}
+                          <h3 class="text-2xl font-extrabold tracking-tight dark:text-white md:text-xl">{title}</h3>
+                          {status && (
+                            <span class="rounded-full border border-black/10 bg-white/60 px-2 py-1 text-[10px] uppercase text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
+                              {status}
+                            </span>
+                          )}
+                        </div>
+                        {specs && specs.length > 0 && (
+                          <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-wide text-black dark:text-slate-300">
+                            {specs.map((spec) => (
+                              <span class="rounded-full border border-black/10 bg-white/40 px-2 py-1 text-[10px] uppercase text-black/80 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                                {spec}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </Fragment>
+                  </Content>
+                );
+              })}
+            </section>
+          ))
         }
       </div>
     </div>
