@@ -35,9 +35,8 @@ const projects = [
     title: 'Bible Study Path',
     description:
       'A guided Bible study app with structured reading plans, notes, and progress tracking.',
-    websiteLink: 'https://biblestudypath.app',
-    storeLink: 'https://apps.apple.com/app/id1234567890',
-    storeLabel: 'App Store',
+    appStoreLink: 'https://apps.apple.com/app/id1234567890',
+    playStoreLink: 'https://play.google.com/store/apps/details?id=com.biblestudypath',
     usedTech: [
       'React',
       'TypeScript',
@@ -247,7 +246,7 @@ const projects = [
         </section>
 
         {
-          projects.map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel }) => {
+          projects.map(({ title, description, githubLink, websiteLink, beLink, feLink, usedTech, storeLink, storeLabel, appStoreLink, playStoreLink }) => {
             const techContent = (
               <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
                 {usedTech.join(' · ')}
@@ -263,6 +262,16 @@ const projects = [
               storeLink && (
                 <a href={storeLink} target="_blank" class="no-underline text-inherit">
                   {storeLabel || 'Store'}
+                </a>
+              ),
+              appStoreLink && (
+                <a href={appStoreLink} target="_blank" class="no-underline text-inherit">
+                  App Store
+                </a>
+              ),
+              playStoreLink && (
+                <a href={playStoreLink} target="_blank" class="no-underline text-inherit">
+                  Google Play
                 </a>
               ),
               beLink && (
