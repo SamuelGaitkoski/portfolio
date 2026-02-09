@@ -32,7 +32,7 @@ export type ImagesOptimizer = (
   width?: number,
   height?: number,
   format?: string
-) => Promise<Array<{ src: string; width: number }>>;
+) => Promise<Array<{ src: string; width: number; height?: number }>>;
 
 /* ******* */
 const config = {

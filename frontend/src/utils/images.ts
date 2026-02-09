@@ -59,6 +59,9 @@ export const adaptOpenGraphImages = async (
 
   const images = openGraph.images;
   const defaultWidth = 1200;
+
+type OptimizedImage = { src: string; width: number; height?: number };
+
   const defaultHeight = 626;
 
   const adaptedImages = await Promise.all(
@@ -71,7 +74,7 @@ export const adaptOpenGraphImages = async (
           };
         }
 
-        let _image: ImageMetadata | string | undefined;
+        let _image: ImageMetadata | string | OptimizedImage | undefined;
 
         if (
           typeof resolvedImage === 'string' &&
