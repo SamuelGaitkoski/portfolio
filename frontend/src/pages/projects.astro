@@ -23,14 +23,14 @@ const monthNames = [
   'Dec',
 ];
 
-const parseStartedAt = (value) => {
+const parseStartedAt = (value: string | undefined) => {
   if (!value) return null;
   const [year, month] = value.split('-');
   if (!year || !month) return null;
   return new Date(Date.UTC(Number(year), Number(month) - 1, 1));
 };
 
-const formatStartedAt = (value) => {
+const formatStartedAt = (value: string | undefined) => {
   const date = parseStartedAt(value);
   if (!date) return null;
   return `${monthNames[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
