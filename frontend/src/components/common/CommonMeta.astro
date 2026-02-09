@@ -10,9 +10,7 @@ const { metadata } = Astro.props as { metadata?: MetaData };
 const defaultTitle = METADATA?.title?.default || SITE?.name || '';
 const title = metadata?.title ?? defaultTitle;
 const titleTemplate = METADATA?.title?.template || '%s';
-const pageTitle = metadata?.ignoreTitleTemplate || !title
-  ? title
-  : titleTemplate.replace('%s', title);
+const pageTitle = metadata?.ignoreTitleTemplate || !title ? title : titleTemplate.replace('%s', title);
 ---
 
 <meta charset="UTF-8" />
