@@ -1,4 +1,4 @@
----
+﻿---
 import Content from '~/components/widgets/Content.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -49,14 +49,14 @@ type Project = {
 
 const projects = [
   {
-    title: 'TextRefine',
+    title: 'RewriteAssist',
     description:
       'A multilingual writing assistant Chrome extension that corrects grammar, suggests refinements, and provides full-sentence rewrites across multiple languages.',
     startedAt: '2026-02',
     status: 'WIP',
     specs: ['Chrome Extension', 'SaaS'],
-    websiteLink: 'https://textrefine.com',
-    storeLink: 'https://chrome.google.com/webstore/detail/textrefine',
+    websiteLink: 'https://rewriteassist.com',
+    storeLink: 'https://chromewebstore.google.com/detail/loop-reminder/ekbemflooidekbphfaoidoagpbipfoka',
     storeLabel: 'Chrome Web Store',
     usedTech: ['TypeScript', 'Next.js'],
   },
@@ -381,7 +381,7 @@ const statusPercent = statusOrder.reduce(
                     }) => {
                       const techContent = (
                         <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                          {usedTech.join(' · ')}
+                          {usedTech.join(' Â· ')}
                         </div>
                       );
 
@@ -435,7 +435,7 @@ const statusPercent = statusOrder.reduce(
                           {linksArray.map((item, index) => (
                             <span>
                               {item}
-                              {index < linksArray.length - 1 && ' · '}
+                              {index < linksArray.length - 1 && ' Â· '}
                             </span>
                           ))}
                         </div>
@@ -592,3 +592,4 @@ const statusPercent = statusOrder.reduce(
     }
   </script>
 </Layout>
+
