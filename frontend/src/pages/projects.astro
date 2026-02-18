@@ -379,7 +379,7 @@ const statusPercent = statusOrder.reduce(
                     }) => {
                       const techContent = (
                         <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                          {usedTech.join(' • ')}
+                          {usedTech.join(' · ')}
                         </div>
                       );
 
@@ -433,7 +433,7 @@ const statusPercent = statusOrder.reduce(
                           {linksArray.map((item, index) => (
                             <span>
                               {item}
-                              {index < linksArray.length - 1 && ' • '}
+                              {index < linksArray.length - 1 && ' · '}
                             </span>
                           ))}
                         </div>
