@@ -519,22 +519,22 @@ const statusPercent = statusOrder.reduce(
             </section>
           ))
         }
-      <section class="mt-16 mb-12">
-        <div class="mb-5 flex items-center gap-4">
-          <div class="h-0.5 flex-1 bg-gradient-to-l from-primary/40 to-transparent" />
-          <span class="text-xs uppercase tracking-[0.2em] text-slate-400">Technologies Used</span>
-          <div class="h-0.5 flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
-        </div>
-        <div class="flex flex-wrap justify-center gap-2">
-          {
-            allTechs.map((tech) => (
-              <span class="inline-flex items-center rounded-full border border-primary/50 px-3 py-1 text-xs font-medium text-primary/80 dark:text-primary">
-                {tech}
-              </span>
-            ))
-          }
-        </div>
-      </section>
+        <section class="mt-16 mb-12">
+          <div class="mb-5 flex items-center gap-4">
+            <div class="h-0.5 flex-1 bg-gradient-to-l from-primary/40 to-transparent"></div>
+            <span class="text-xs uppercase tracking-[0.2em] text-slate-400">Technologies Used</span>
+            <div class="h-0.5 flex-1 bg-gradient-to-r from-primary/40 to-transparent"></div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-2">
+            {
+              allTechs.map((tech) => (
+                <span class="inline-flex items-center rounded-full border border-primary/50 px-3 py-1 text-xs font-medium text-primary/80 dark:text-primary">
+                  {tech}
+                </span>
+              ))
+            }
+          </div>
+        </section>
       </div>
     </div>
   </main>
