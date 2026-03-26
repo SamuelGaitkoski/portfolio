@@ -395,9 +395,7 @@ const statusPercent = statusOrder.reduce(
                       _dateLabel,
                     }) => {
                       const techContent = (
-                        <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
-                          {usedTech.join(' · ')}
-                        </div>
+                        <div class="text-sm text-black dark:text-slate-400">{usedTech.join(' · ')}</div>
                       );
 
                       const linksArray = [
@@ -446,7 +444,7 @@ const statusPercent = statusOrder.reduce(
                       ].filter(Boolean);
 
                       const linksContent = (
-                        <div class="text-sm md:text-xs font-semibold md:font-normal text-black dark:text-slate-400">
+                        <div class="text-sm text-black dark:text-slate-400">
                           {linksArray.map((item, index) => (
                             <span>
                               {item}
@@ -483,8 +481,7 @@ const statusPercent = statusOrder.reduce(
                               gridContainer: 'gap-y-2 md:gap-y-2',
                               panel: 'bg-blue-50 dark:bg-inherit shadow-none hover:shadow-none items-start',
                               title: 'text-black',
-                              description:
-                                'ml-0 mt-1 text-black leading-relaxed text-sm md:text-xs font-semibold md:font-normal',
+                              description: 'ml-0 mt-1 text-black leading-relaxed text-sm',
                               icon: 'h-7 md:h-6 w-7 md:w-6 text-black dark:text-white',
                             }}
                           >
