@@ -8,3 +8,4 @@
   <type>(<scope>): <description>
   ```
   Common types: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `test`.
+- **Push after committing** — after all commits for a task are done, run `git push` to push them to GitHub.
