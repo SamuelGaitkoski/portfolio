@@ -35,6 +35,7 @@ type Project = {
   startedAt?: string;
   startedOrder?: number;
   status?: string;
+  profitable?: boolean;
   specs?: string[];
   websiteLink?: string;
   storeLink?: string;
@@ -54,6 +55,7 @@ const projects = [
       'A SaaS platform for Brazilian tailor shops (alfaiatarias) to manage appointments, customers, service orders, WhatsApp reminders, and billing — all in one place.',
     startedAt: '2026-02',
     status: 'WIP',
+    profitable: true,
     specs: ['SaaS'],
     websiteLink: 'https://tailor-website-orpin.vercel.app',
     usedTech: ['TypeScript', 'Next.js', 'PostgreSQL', 'Cloudflare R2'],
@@ -94,6 +96,7 @@ const projects = [
       'A scalable e-commerce platform built for multiple businesses, covering catalog management, order flow, billing, and integrations for shipping, invoicing, and payments.',
     startedAt: '2025-06',
     status: 'WIP',
+    profitable: true,
     specs: ['SaaS'],
     websiteLink: 'https://www.essaecommerce.com',
     usedTech: ['C#', '.NET 8', 'React', 'TypeScript', 'PostgreSQL'],
@@ -385,6 +388,7 @@ const statusPercent = statusOrder.reduce(
                       appStoreLink,
                       playStoreLink,
                       status,
+                      profitable,
                       specs,
                       _dateLabel,
                     }) => {
@@ -495,6 +499,11 @@ const statusPercent = statusOrder.reduce(
                                   {status && (
                                     <span class="rounded-full border border-black/10 bg-white/60 px-2 py-1 text-[10px] uppercase text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
                                       {status}
+                                    </span>
+                                  )}
+                                  {profitable && (
+                                    <span class="rounded-full border border-green-500/40 bg-green-500/10 px-2 py-1 text-[10px] uppercase text-green-600 dark:border-green-400/30 dark:bg-green-400/10 dark:text-green-400">
+                                      Profitable
                                     </span>
                                   )}
                                 </div>
