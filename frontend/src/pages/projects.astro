@@ -314,6 +314,8 @@ const statusCounts = statusOrder.reduce(
 );
 const totalWithStatus = Object.values(statusCounts).reduce((sum, value) => sum + value, 0) || 1;
 const totalProjects = projects.length;
+const profitableCount = projects.filter((p) => p.profitable).length;
+const profitablePercent = Math.round((profitableCount / totalProjects) * 100);
 const allTechs = [...new Set(projects.flatMap((p) => p.usedTech))].sort((a, b) => a.localeCompare(b));
 const statusPercent = statusOrder.reduce(
   (acc, status) => {
@@ -335,6 +337,12 @@ const statusPercent = statusOrder.reduce(
             </h1>
             <p class="mt-3 text-center text-sm text-slate-400">
               {totalProjects} projects built since 2022
+              {profitablePercent > 0 && (
+                <span>
+                  {' · '}
+                  <span class="text-green-500 dark:text-green-400">{profitablePercent}% profitable</span>
+                </span>
+              )}
             </p>
           </header>
         </section>
