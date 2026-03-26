@@ -598,23 +598,23 @@ const statusPercent = statusOrder.reduce(
       color: rgba(59, 130, 246, 0.85);
     }
 
-    .project-card {
+    :global(.project-card) {
       transition:
         background 0.2s ease,
         box-shadow 0.2s ease;
     }
 
-    .project-card:hover {
+    :global(.project-card:hover) {
       box-shadow:
-        0 0 0 1px rgba(59, 130, 246, 0.15),
-        0 4px 24px rgba(59, 130, 246, 0.08);
+        0 0 0 1px rgba(59, 130, 246, 0.22),
+        0 6px 28px rgba(59, 130, 246, 0.1);
     }
 
-    :global(.dark) .project-card:hover {
-      background: rgba(30, 41, 59, 0.95);
+    :global(.dark .project-card:hover) {
+      background: rgba(30, 41, 59, 0.98);
       box-shadow:
-        0 0 0 1px rgba(59, 130, 246, 0.2),
-        0 4px 24px rgba(59, 130, 246, 0.1);
+        0 0 0 1px rgba(59, 130, 246, 0.28),
+        0 6px 28px rgba(59, 130, 246, 0.13);
     }
   </style>
 
