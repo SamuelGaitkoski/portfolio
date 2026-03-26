@@ -508,12 +508,12 @@ const statusPercent = statusOrder.reduce(
                                     {title}
                                   </h3>
                                   {status && (
-                                    <span class="rounded border border-black/10 bg-white/60 px-2.5 py-1 text-[10px] uppercase tracking-wider text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
+                                    <span class="rounded border border-black/10 bg-white/60 px-2.5 py-0.5 text-[10px] uppercase tracking-wider text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
                                       {status}
                                     </span>
                                   )}
                                   {profitable && (
-                                    <span class="rounded border border-green-500/40 bg-green-500/10 px-2.5 py-1 text-[10px] uppercase tracking-wider text-green-600 dark:border-green-400/30 dark:bg-green-400/10 dark:text-green-400">
+                                    <span class="rounded border border-green-500/40 bg-green-500/10 px-2.5 py-0.5 text-[10px] uppercase tracking-wider text-green-600 dark:border-green-400/30 dark:bg-green-400/10 dark:text-green-400">
                                       Profitable
                                     </span>
                                   )}
@@ -521,7 +521,7 @@ const statusPercent = statusOrder.reduce(
                                 {specs && specs.length > 0 && (
                                   <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-wide text-black dark:text-slate-300">
                                     {specs.map((spec) => (
-                                      <span class="rounded border border-black/10 bg-white/40 px-2.5 py-1 text-[10px] uppercase tracking-wider text-black/80 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                                      <span class="rounded border border-black/10 bg-white/40 px-2.5 py-0.5 text-[10px] uppercase tracking-wider text-black/80 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
                                         {spec}
                                       </span>
                                     ))}
