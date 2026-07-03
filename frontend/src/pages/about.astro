@@ -71,7 +71,13 @@ const experiences = [
       items={experiences.map((exp) => ({
         title: exp.title,
         description: exp.company
-          ? `${exp.company}<br/>${exp.period || ''}<br/>${exp.details ? exp.details.join('<br/>') : ''}`
+          ? `${exp.company}<br/>${exp.period || ''}${
+              exp.details
+                ? `<ul class="list-disc pl-5 mt-2 space-y-1">${exp.details
+                    .map((detail) => `<li>${detail}</li>`)
+                    .join('')}</ul>`
+                : ''
+            }`
           : '',
         icon: exp.icon,
       }))}
