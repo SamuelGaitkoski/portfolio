@@ -73,8 +73,11 @@ const experiences = [
         description: exp.company
           ? `${exp.company}<br/>${exp.period || ''}${
               exp.details
-                ? `<ul class="list-disc list-inside mt-2 space-y-1">${exp.details
-                    .map((detail) => `<li>${detail}</li>`)
+                ? `<ul class="mt-2 space-y-1">${exp.details
+                    .map(
+                      (detail) =>
+                        `<li class="relative pl-3.5 before:absolute before:left-0 before:content-['•']">${detail}</li>`
+                    )
                     .join('')}</ul>`
                 : ''
             }`
