@@ -306,7 +306,7 @@ const yearOrder = Object.keys(groupedProjects)
   .map(String)
   .concat(groupedProjects.Undated ? ['Undated'] : []);
 
-const statusOrder = ['LIVE', 'WIP', 'STANDBY', 'COMPLETED', 'DEAD'];
+const statusOrder = ['LIVE', 'WIP', 'COMPLETED', 'DEAD'];
 const statusCounts = statusOrder.reduce(
   (acc, status) => {
     acc[status] = projects.filter((project) => project.status === status).length;
