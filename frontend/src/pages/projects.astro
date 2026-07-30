@@ -54,7 +54,7 @@ const projects = [
     description:
       'A WhatsApp-first SaaS platform for appointment-based businesses to manage scheduling, customer conversations, payments, and automated booking flows.',
     startedAt: '2026-03',
-    status: 'STANDBY',
+    status: 'DEAD',
     specs: ['SaaS', 'WhatsApp'],
     websiteLink: 'https://agendebot.com',
     usedTech: ['TypeScript', 'Next.js', 'PostgreSQL'],
@@ -75,7 +75,7 @@ const projects = [
     description:
       'A multilingual writing assistant Chrome extension that corrects grammar, suggests refinements, and provides full-sentence rewrites across multiple languages.',
     startedAt: '2026-02',
-    status: 'STANDBY',
+    status: 'DEAD',
     specs: ['Chrome Extension', 'SaaS'],
     websiteLink: 'https://rewriteassist.com',
     usedTech: ['TypeScript', 'Next.js', 'PostgreSQL'],
@@ -94,7 +94,7 @@ const projects = [
     title: 'Bible Study Path',
     description: 'A guided Bible study app with structured reading plans, notes, and progress tracking.',
     startedAt: '2026-02',
-    status: 'STANDBY',
+    status: 'DEAD',
     specs: ['iOS', 'Android'],
     appStoreLink: 'https://apps.apple.com/app/id1234567890',
     playStoreLink: 'https://play.google.com/store/apps/details?id=com.biblestudypath',
@@ -306,7 +306,7 @@ const yearOrder = Object.keys(groupedProjects)
   .map(String)
   .concat(groupedProjects.Undated ? ['Undated'] : []);
 
-const statusOrder = ['LIVE', 'WIP', 'STANDBY', 'COMPLETED'];
+const statusOrder = ['LIVE', 'WIP', 'STANDBY', 'COMPLETED', 'DEAD'];
 const statusCounts = statusOrder.reduce(
   (acc, status) => {
     acc[status] = projects.filter((project) => project.status === status).length;
@@ -364,13 +364,6 @@ const statusPercent = statusOrder.reduce(
               </button>
             ))
           }
-          <button
-            class="status-pill inline-flex items-center justify-center whitespace-nowrap rounded-full border border-slate-300/60 bg-blue-50 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-600 transition hover:border-primary hover:text-primary hover:bg-primary/10 dark:border-slate-600/50 dark:bg-slate-800/60 dark:text-slate-200/70 sm:px-4 sm:text-[11px]"
-            data-status-filter="ALL"
-            type="button"
-          >
-            <span>ALL</span>
-          </button>
         </section>
 
         {
@@ -613,6 +606,8 @@ const statusPercent = statusOrder.reduce(
         return;
       }
 
+      const showAll = !activeStatus;
+
       const updateYearSection = (section) => {
         const cards = Array.from(section.querySelectorAll('[data-project-card]'));
         const countEl = section.querySelector('[data-year-count]');
@@ -621,19 +616,19 @@ const statusPercent = statusOrder.reduce(
         const visibleCount = visible.length;
 
         if (countEl) {
-          countEl.textContent = formatCountLabel(activeStatus === 'ALL' ? total : visibleCount);
+          countEl.textContent = formatCountLabel(showAll ? total : visibleCount);
         }
 
         section.style.display = visibleCount > 0 ? '' : 'none';
       };
 
       statusPills.forEach((pill) => {
-        pill.classList.toggle('is-active', pill.dataset.statusFilter === activeStatus);
+        pill.classList.toggle('is-active', !showAll && pill.dataset.statusFilter === activeStatus);
       });
 
       projectCards.forEach((card) => {
         const status = card.dataset.projectStatus || 'COMPLETED';
-        const show = activeStatus === 'ALL' || status === activeStatus;
+        const show = showAll || status === activeStatus;
         card.style.display = show ? '' : 'none';
       });
 
@@ -646,14 +641,17 @@ const statusPercent = statusOrder.reduce(
         return;
       }
 
+      let activeStatus = null;
+
       statusPills.forEach((pill) => {
         pill.addEventListener('click', () => {
-          const nextStatus = pill.dataset.statusFilter || 'ALL';
-          applyProjectFilters(nextStatus);
+          const clicked = pill.dataset.statusFilter || null;
+          activeStatus = activeStatus === clicked ? null : clicked;
+          applyProjectFilters(activeStatus);
         });
       });
 
-      applyProjectFilters('ALL');
+      applyProjectFilters(activeStatus);
     };
 
     document.addEventListener('astro:page-load', initProjectFilters);
