@@ -167,10 +167,16 @@ import { UI } from 'astrowind:config';
   /* Inspired by: https://github.com/heidkaemper/tailwindcss-intersect */
   const Observer = {
     observer: null,
-    delayBetweenAnimations: 100,
-    animationCounter: 0,
+    delayBetweenAnimations: 60,
+    maxAnimationDelay: 240,
+    nextAnimationAt: 0,
 
     start() {
+      if (this.observer) {
+        this.observer.disconnect();
+      }
+      this.nextAnimationAt = 0;
+
       const selectors = [
         '[class*=" intersect:"]',
         '[class*=":intersect:"]',
@@ -220,13 +226,18 @@ import { UI } from 'astrowind:config';
               return;
             }
 
-            if (intersectionRatio >= threshold) {
+            // The first callback also reports off-screen elements with a ratio of 0, so a
+            // threshold of 0 must not count as visible unless the element really intersects.
+            if (entry.isIntersecting && intersectionRatio >= threshold) {
               if (!target.hasAttribute('data-animated')) {
                 target.removeAttribute('no-intersect');
                 target.setAttribute('data-animated', 'true');
 
-                const delay = this.animationCounter * this.delayBetweenAnimations;
-                this.animationCounter++;
+                // Stagger elements that show up together, but never let the queue build up:
+                // the wait is capped and drains by itself once nothing new comes into view.
+                const now = performance.now();
+                const delay = Math.min(Math.max(this.nextAnimationAt - now, 0), this.maxAnimationDelay);
+                this.nextAnimationAt = now + delay + this.delayBetweenAnimations;
 
                 target.style.transitionDelay = `${delay}ms`;
                 target.style.animationDelay = `${delay}ms`;
@@ -240,8 +251,6 @@ import { UI } from 'astrowind:config';
               target.removeAttribute('data-animated');
               target.style.transitionDelay = '';
               target.style.animationDelay = '';
-
-              this.animationCounter = 0;
             }
           });
         });
